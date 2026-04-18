@@ -135,7 +135,7 @@ export const projects = [
     achievement: "Solved production feature consistency challenges between training and inference pipelines",
     links: {
       live:   "https://aircraft-engine-predictive-maintenance-system.streamlit.app/",
-      api:    "https://aircraft-engine-api.onrender.com/docs", 
+      // api:    "https://aircraft-engine-api.onrender.com/docs", 
       github: "https://github.com/raj-singh1802/aircraft-engine-predictive-maintenance",
     },
     color: "#0077b6",

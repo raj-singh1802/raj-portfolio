@@ -21,7 +21,7 @@ const highlights = [
   {
     icon: Brain,
     title: "ML + Research",
-    desc: "Bridging academic rigor (EEG thesis) with production ML — predictive maintenance, LLM pipelines.",
+    desc: "Bridging academic rigor with production ML — predictive maintenance, LLM pipelines.",
   },
   {
     icon: Code2,

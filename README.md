@@ -1,16 +1,129 @@
-# React + Vite
+# Raj Narayan Singh — AI/ML Engineer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🌐 **Live Site:** [raj-portfolio-bay-eight.vercel.app](https://raj-portfolio-bay-eight.vercel.app)
 
-Currently, two official plugins are available:
+A modern, production-ready developer portfolio showcasing AI/ML projects, skills, and experience. Built with React, Tailwind CSS, and Framer Motion.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework:** React 18 + Vite
+- **Styling:** Tailwind CSS v3
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Deployment:** Vercel
+- **Fonts:** Syne + DM Sans + JetBrains Mono (Google Fonts)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- Smooth scroll navigation with active section highlighting
+- Scroll progress bar at the top
+- Typewriter role animation in Hero section
+- Animated skill bars triggered on scroll
+- Project cards with tech stack filtering
+- Project detail modals with metrics and links
+- Contact form that opens mail client
+- Fully responsive — mobile, tablet, desktop
+- Dark theme with cyan/teal accent system
+
+---
+
+## 📁 Project Structure
+
+src/
+├── components/
+│   ├── Navbar.jsx       # Fixed nav with active section tracking
+│   ├── Hero.jsx         # Landing section with particles & typewriter
+│   ├── About.jsx        # About me with highlight cards
+│   ├── Skills.jsx       # Animated skill bars by category
+│   ├── Projects.jsx     # Filterable project cards + detail modals
+│   ├── Education.jsx    # Education timeline & GPA display
+│   ├── Contact.jsx      # Contact links & message form
+│   └── Footer.jsx       # Footer with nav & social links
+├── data/
+│   └── portfolio.js     # All content lives here (edit this file)
+├── App.jsx
+├── main.jsx
+└── index.css
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js v18+
+- npm v9+
+
+### Installation
+
+Clone the repository
+git clone https://github.com/raj-singh1802/raj-portfolio.git
+
+Navigate into the project
+cd raj-portfolio
+
+Install dependencies
+npm install
+
+Start development server
+npm run dev
+
+Open http://localhost:5173 in your browser.
+
+---
+
+## ✏️ Customization
+
+All content is centralized in one file:
+
+src/data/portfolio.js
+
+Edit this file to update:
+- Personal info (name, email, location, links)
+- Stats (projects shipped, GPA, etc.)
+- Skills and proficiency levels
+- Projects (title, description, metrics, links)
+- Education details
+
+No other files need to be touched for content updates.
+
+### Adding your Resume
+Drop your resume PDF into the public/ folder:
+public/resume.pdf
+
+---
+
+## 📦 Build for Production
+
+npm run build
+
+Output will be in the dist/ folder.
+
+---
+
+## 🌍 Deployment (Vercel)
+
+1. Push your code to GitHub
+2. Go to vercel.com and sign in with GitHub
+3. Click Add New Project and import your repo
+4. Vercel auto-detects Vite — just click Deploy
+5. Your site is live in ~60 seconds
+
+Re-deployments happen automatically on every git push.
+
+---
+
+## 📬 Contact
+
+- **Email:** rajsingh180204@gmail.com
+- **GitHub:** github.com/raj-singh1802
+- **Location:** Bokaro Steel City, Jharkhand, India
+
+---
+
+## 📄 License
+
+This project is open source and available under the MIT License.

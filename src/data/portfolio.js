@@ -111,8 +111,8 @@ export const projects = [
     ],
     achievement: "Fully AI-driven pipeline integrating LLM reasoning with vector similarity search",
     links: {
-      github: "https://github.com/raj-singh1802/ai-startup-evaluator",
       live:   "https://ai-startup-evaluator.streamlit.app",
+      github: "https://github.com/raj-singh1802/ai-startup-evaluator",
     },
     color: "#00a896",
     icon: "💡",
@@ -134,9 +134,9 @@ export const projects = [
     ],
     achievement: "Solved production feature consistency challenges between training and inference pipelines",
     links: {
-      github: "https://github.com/raj-singh1802/aircraft-engine-predictive-maintenance",
       live:   "https://aircraft-engine-predictive-maintenance-system.streamlit.app/",
-      api:    "https://aircraft-engine-predictive-maintenance.onrender.com", 
+      api:    "https://aircraft-engine-api.onrender.com/docs", 
+      github: "https://github.com/raj-singh1802/aircraft-engine-predictive-maintenance",
     },
     color: "#0077b6",
     icon: "✈️",

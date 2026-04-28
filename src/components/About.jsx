@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { MapPin, GraduationCap, Rocket, Code2, Brain } from 'lucide-react';
+import { MapPin, Rocket, Code2, Brain, Zap } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 
 const fadeInUp = {
@@ -20,8 +20,8 @@ const highlights = [
   },
   {
     icon: Brain,
-    title: "ML + Research",
-    desc: "Bridging academic rigor with production ML — predictive maintenance, LLM pipelines.",
+    title: "ML + Agentic AI",
+    desc: "From LLM pipelines and RAG systems to agentic workflows — bridging research concepts with production reality.",
   },
   {
     icon: Code2,
@@ -70,17 +70,17 @@ export default function About() {
 
               <motion.p variants={fadeInUp}
                 className="text-text-secondary text-lg leading-relaxed mb-4">
-                I'm a final-year Computer Science student at KIIT University, obsessively
-                focused on building end-to-end AI products — not just models, but complete
-                systems with APIs, frontends, and cloud deployments.
+                  I'm a final-year Computer Science student obsessively focused on 
+                  building end-to-end AI products — not just models, but complete 
+                  systems with APIs, frontends, and cloud deployments that actually work.
               </motion.p>
 
               <motion.p variants={fadeInUp}
                 className="text-text-secondary leading-relaxed mb-6">
-                My work spans production LLM pipelines, predictive maintenance systems,
-                and deep learning research. I've built voice-based AI platforms, VC-style
-                startup evaluators, and aircraft engine health monitoring systems —
-                each deployed and functional.
+                  I've shipped 5 production AI systems — a voice-based 
+                  interview platform, a VC-style startup evaluator, an aircraft predictive 
+                  maintenance system, and an agentic lead capture workflow. Each one deployed, 
+                  functional, and accessible via a live URL.
               </motion.p>
 
               {/* Info chips */}
@@ -90,12 +90,12 @@ export default function About() {
                   <span>{personalInfo.location}</span>
                 </div>
                 <div className="flex items-center gap-2 tag">
-                  <GraduationCap size={12} className="text-accent-cyan" />
-                  <span>{personalInfo.university}</span>
+                  <Rocket size={12} className="text-accent-cyan" />
+                  <span>5 AI Products Shipped</span>
                 </div>
                 <div className="flex items-center gap-2 tag">
-                  <span className="text-accent-cyan">GPA</span>
-                  <span>{personalInfo.gpa}</span>
+                  <Zap size={12} className="text-accent-cyan" />
+                  <span>Open to Work — May 2026</span>
                 </div>
               </motion.div>
             </div>

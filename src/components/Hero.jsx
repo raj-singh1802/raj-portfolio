@@ -104,7 +104,7 @@ export default function Hero() {
         >
           <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
           <span className="text-xs font-mono text-accent-cyan tracking-wider">
-            Available for opportunities — May 2026
+            Actively seeking AI/ML roles — graduating May 2026
           </span>
         </motion.div>
 

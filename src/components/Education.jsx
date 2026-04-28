@@ -155,7 +155,7 @@ export default function Education() {
                 </div>
                 <div className="mt-4 pt-3 border-t border-border-subtle flex justify-between items-center">
                     <span className="text-xs text-text-muted font-mono">Total shipped</span>
-                    <span className="font-display font-black text-2xl text-accent-cyan">5+</span>
+                    <span className="font-display font-black text-2xl text-accent-cyan">4+</span>
                 </div>
               </div>
 

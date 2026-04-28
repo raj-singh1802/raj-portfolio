@@ -19,7 +19,7 @@ export const personalInfo = {
 };
 
 export const stats = [
-  { value: "5+",     label: "AI Products Shipped"     },
+  { value: "4+",     label: "AI Products Shipped"     },
   { value: "5 Days", label: "Fastest Deployment"      },
   { value: "3+",     label: "APIs Deployed to Cloud"  },
   { value: "10+",    label: "Technologies Mastered"   },

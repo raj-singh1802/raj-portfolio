@@ -13,7 +13,7 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
-const ALL_FILTERS = ['All', 'Python', 'FastAPI', 'Streamlit', 'LLM', 'ML', 'NLP', 'Deep Learning', 'FAISS'];
+const ALL_FILTERS = ['All', 'Python', 'FastAPI', 'Streamlit', 'LLM', 'ML', 'NLP', 'Deep Learning', 'FAISS', 'LangChain', 'LangGraph'];
 
 function ProjectCard({ project, index, onClick }) {
   const ref = useRef(null);

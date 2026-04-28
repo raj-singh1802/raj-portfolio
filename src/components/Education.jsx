@@ -107,29 +107,55 @@ export default function Education() {
             <motion.div variants={fadeInUp} className="space-y-5">
 
               {/* GPA Card */}
-              <div className="card-base p-6 text-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-5"
-                  style={{
-                    background: 'radial-gradient(circle at 50% 50%, #00d4d4, transparent 70%)'
-                  }}
+              {/* Shipped Projects Card */}
+              <div className="card-base p-6 relative overflow-hidden">
+                <div
+                    className="absolute inset-0 opacity-5"
+                    style={{
+                        background: 'radial-gradient(circle at 50% 50%, #00d4d4, transparent 70%)'
+                    }}
                 />
-                <p className="text-xs font-mono text-text-muted uppercase tracking-widest mb-2">
-                  Cumulative GPA
+                <p className="text-xs font-mono text-text-muted uppercase tracking-widest mb-4">
+                    Production Deployments
                 </p>
-                <div className="font-display font-black text-6xl text-accent-cyan mb-1">
-                  {personalInfo.gpa.split(' ')[0]}
+                <div className="space-y-3">
+                    {[
+                        { icon: "🎙️", name: "AI Tutor Screener",    tag: "Voice AI",    color: "#00d4d4" },
+                        { icon: "💡", name: "AI Startup Evaluator",  tag: "LLM + FAISS", color: "#00a896" },
+                        { icon: "✈️", name: "AeroMind",              tag: "Predictive ML",color: "#0077b6" },
+                        { icon: "🕸️", name: "AutoStream Agent",      tag: "Agentic AI",  color: "#6366f1" },
+                    ].map((project, i) => (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1, duration: 0.4 }}
+                            className="flex items-center gap-3 p-2.5 rounded-xl
+                                       bg-bg-secondary border border-border-subtle
+                                       hover:border-border-active transition-all group"
+                        >
+                            <span className="text-lg">{project.icon}</span>
+                            <span className="text-sm text-text-secondary group-hover:text-text-primary
+                                             transition-colors flex-1">
+                                {project.name}
+                            </span>
+                            <span
+                                className="text-[10px] font-mono px-2 py-0.5 rounded-full border"
+                                style={{
+                                    color: project.color,
+                                    borderColor: `${project.color}40`,
+                                    background: `${project.color}10`,
+                                }}
+                            >
+                                {project.tag}
+                            </span>
+                        </motion.div>
+                    ))}
                 </div>
-                <p className="text-text-muted text-sm">out of 10.0</p>
-
-                {/* GPA bar */}
-                <div className="mt-4 h-2 bg-bg-secondary rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full rounded-full bg-gradient-to-r from-accent-cyan to-accent-teal"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: '81%' }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
-                  />
+                <div className="mt-4 pt-3 border-t border-border-subtle flex justify-between items-center">
+                    <span className="text-xs text-text-muted font-mono">Total shipped</span>
+                    <span className="font-display font-black text-2xl text-accent-cyan">5+</span>
                 </div>
               </div>
 

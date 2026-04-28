@@ -142,6 +142,29 @@ export const projects = [
     icon: "✈️",
     status: "Live",
   },
+  {
+    id: 5,
+    title: "AutoStream",
+    tagline: "Production agentic workflow converting conversations into qualified leads",
+    shortDesc: "LangGraph-powered conversational AI agent with RAG pipeline, intent classification, and multi-turn lead capture for a SaaS product.",
+    description: "Developed an end-to-end agentic workflow for a SaaS company using LangGraph and FastAPI. The agent intelligently routes conversations based on intent, retrieves accurate information from a local RAG knowledge base, and captures qualified leads through stateful multi-turn interactions. Implemented graceful degradation fallback ensuring reliability without LLM API dependency. Added FastAPI webhook support for real-time deployment and WhatsApp integration architecture.",
+    tech: ["Python", "LangGraph", "LLM", "FAISS", "FastAPI"],
+    techStack: ["Python", "LangGraph", "LangChain", "FastAPI", "FAISS", "Sentence-Transformers", "OpenAI API", "REST APIs"],
+    metrics: [
+      { label: "Architecture",   value: "Multi-node"  },
+      { label: "Vector Chunks",  value: "~32 chunks"  },
+      { label: "Workflow",       value: "End-to-End"  },
+      { label: "Fallback",       value: "Zero-API"    },
+    ],
+    achievement: "Stateful multi-turn lead capture with RAG retrieval and graceful degradation — no API dependency required",
+    links: {
+      live:   "https://your-demo-link.com",       // ← UPDATE or remove
+      github: "https://github.com/raj-singh1802/autostream", // ← UPDATE
+    },
+    color: "#6366f1",
+    icon: "🤖",
+    status: "Live",
+  },
 ];
 
 export const education = [

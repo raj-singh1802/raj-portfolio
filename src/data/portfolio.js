@@ -163,7 +163,7 @@ export const projects = [
     },
     color: "#6366f1",
     icon: "🕸️",
-    status: "Live",
+    // status: "Live",
   },
 ];
 

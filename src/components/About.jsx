@@ -20,13 +20,13 @@ const highlights = [
   },
   {
     icon: Brain,
-    title: "ML + Agentic AI",
-    desc: "From LLM pipelines and RAG systems to agentic workflows — bridging research concepts with production reality.",
+    title: "Agentic AI Engineering",
+    desc: "Building multi-step execution pipelines, LLM orchestration, and autonomous workflow systems at internship level.",
   },
   {
     icon: Code2,
     title: "Full-Stack AI",
-    desc: "FastAPI backends, Streamlit frontends, vector databases, and cloud deployment — the complete stack.",
+    desc: "FastAPI backends, Streamlit frontends, vector databases, and cloud deployment — the complete production stack.",
   },
 ];
 
@@ -70,16 +70,17 @@ export default function About() {
 
               <motion.p variants={fadeInUp}
                 className="text-text-secondary text-lg leading-relaxed mb-4">
-                  I'm a final-year Computer Science student obsessively focused on 
+                  Computer Science student obsessively focused on 
                   building end-to-end AI products — not just models, but complete 
                   systems with APIs, frontends, and cloud deployments that actually work.
               </motion.p>
 
               <motion.p variants={fadeInUp}
                 className="text-text-secondary leading-relaxed mb-6">
-                  I've shipped 5 production AI systems — a voice-based 
-                  interview platform, a VC-style startup evaluator, an aircraft predictive 
-                  maintenance system, and an agentic lead capture workflow. Each one deployed, 
+                  Currently interning as an AI Engineer at Hamath OPC, building agentic 
+                  workflow systems and LLM-powered automation pipelines. Previously a 
+                  Business Analyst Intern at Labmentix where I cut reporting effort by 40% 
+                  using Python, SQL, and Power BI. Every project I build is deployed, 
                   functional, and accessible via a live URL.
               </motion.p>
 

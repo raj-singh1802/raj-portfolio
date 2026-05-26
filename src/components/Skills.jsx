@@ -130,9 +130,11 @@ export default function Skills() {
             </p>
             <div className="flex flex-wrap gap-2">
               {[
-                'TensorFlow','PyTorch','MNE-Python','SHAP','Scikit-learn',
-                'Sentence Transformers','gTTS','ReportLab','Joblib',
-                'Groq API','LLaMA-3.3','Whisper-v3','Power BI','ICA',
+                'TensorFlow', 'PyTorch', 'Scikit-learn', 'Sentence Transformers',
+                'LangGraph', 'LangChain', 'FAISS', 'Groq API', 'LLaMA-3.3',
+                'Whisper-v3', 'gTTS', 'ReportLab', 'Joblib', 'Power BI',
+                'DAX', 'Power Query', 'Prompt Engineering', 'Agentic AI',
+                'Webhook Integration', 'WhatsApp Cloud API',
               ].map((tech) => (
                 <span
                   key={tech}

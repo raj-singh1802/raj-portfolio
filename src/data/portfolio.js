@@ -19,10 +19,10 @@ export const personalInfo = {
 };
 
 export const stats = [
-  { value: "4+",     label: "AI Products Shipped"     },
-  { value: "5 Days", label: "Fastest Deployment"      },
-  { value: "3+",     label: "APIs Deployed to Cloud"  },
-  { value: "10+",    label: "Technologies Mastered"   },
+  { value: "5+",  label: "AI Products Shipped"    },
+  { value: "2",   label: "Internships Completed"  },
+  { value: "5",   label: "Days Fastest Deployment"},
+  { value: "10+", label: "Technologies Mastered"  },
 ];
 
 export const skills = [
@@ -35,7 +35,9 @@ export const skills = [
       { name: "Deep Learning",           level: 82 },
       { name: "Time-Series Analysis",    level: 78 },
       { name: "Vector Databases (FAISS)",level: 80 },
-      { name: "LangGraph / LangChain",   level: 78 },
+      { name: "LangGraph / LangChain",    level: 82 },
+      { name: "Prompt Engineering",       level: 85 },
+      { name: "Agentic AI / Orchestration", level: 78 },
     ],
   },
   {
@@ -46,6 +48,7 @@ export const skills = [
       { name: "FastAPI",          level: 85 },
       { name: "Streamlit",        level: 90 },
       { name: "REST APIs",        level: 88 },
+      { name: "Workflow Automation",      level: 80 },
       // { name: "Docker",           level: 65 },
     ],
   },
@@ -53,20 +56,22 @@ export const skills = [
     category: "Data",
     icon: "📊",
     items: [
-      { name: "SQL",              level: 85 },
-      { name: "Pandas / NumPy",   level: 90 },
+      { name: "SQL",                 level: 85 },
+      { name: "Pandas / NumPy",      level: 90 },
       { name: "Plotly / Matplotlib", level: 85 },
-      { name: "Power BI",         level: 75 },
+      { name: "Power BI / DAX",      level: 75 },
+      { name: "Excel / EDA",         level: 80 },
     ],
   },
   {
     category: "Deployment",
     icon: "🚀",
     items: [
-      { name: "Streamlit Cloud",  level: 90 },
-      { name: "Render Cloud",     level: 82 },
-      { name: "Vercel / Netlify", level: 80 },
-      { name: "Groq API",         level: 88 },
+      { name: "Streamlit Cloud",         level: 90 },
+      { name: "Render Cloud",            level: 82 },
+      { name: "Vercel / Netlify",        level: 80 },
+      { name: "Groq API / LLM APIs",     level: 88 },
+      { name: "Joblib / Model Serving",  level: 78 },
     ],
   },
 ];

@@ -14,7 +14,7 @@ export const personalInfo = {
   resumeUrl: "/resume.pdf",
   university: "KIIT University",
   degree: "B.Tech Computer Science",
-  gpa: "8.10 / 10",
+  gpa: "8.23 / 10",
   graduation: "May 2026",
 };
 
@@ -178,5 +178,37 @@ export const education = [
       "Focus: Machine Learning, Deep Learning, Data Structures & Algorithms",
       "Relevant Courses: ML, NLP, DBMS, Algorithms, Statistics",
     ],
+  },
+];
+
+export const experience = [
+  {
+    role: "AI Engineering Intern",
+    company: "Hamath OPC Pvt Ltd",
+    period: "May 2026 — Present",
+    type: "Remote",
+    color: "#00d4d4",
+    icon: "🤖",
+    points: [
+      "Developing AI-powered workflow automation and Agentic AI systems with multi-step execution pipelines using FastAPI and LLM-based architectures.",
+      "Building production-oriented conversational AI systems integrating structured execution pipelines, external APIs, and intelligent response handling.",
+      "Designing modular backend services for AI orchestration, request validation, and real-time workflow processing.",
+      "Exploring Agentic AI concepts including orchestration logic, autonomous workflow execution, and structured output generation.",
+    ],
+    tech: ["Python", "FastAPI", "LangGraph", "LLMs", "Agentic AI", "REST APIs"],
+  },
+  {
+    role: "Business Analyst Intern",
+    company: "Labmentix Pvt Ltd",
+    period: "Jun 2025 — Dec 2025",
+    type: "Remote",
+    color: "#00a896",
+    icon: "📊",
+    points: [
+      "Engineered automated Power BI dashboards and KPI reporting pipelines using Python and SQL, reducing manual reporting effort by ~40%.",
+      "Performed EDA on multi-domain business datasets, surfacing actionable operational and product insights.",
+      "Leveraged Groq API and Generative AI for SQL drafting, EDA documentation, and insight summarization — reducing analytics turnaround by ~30%.",
+    ],
+    tech: ["Python", "SQL", "Power BI", "Groq API", "EDA", "Plotly"],
   },
 ];

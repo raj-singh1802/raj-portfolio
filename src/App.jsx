@@ -8,6 +8,7 @@ import Projects from './components/Projects';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Experience from './components/Experience';
 
 export default function App() {
   const { scrollYProgress } = useScroll();
@@ -44,6 +45,8 @@ export default function App() {
         <About />
         <Skills />
         <Projects />
+        <Projects />
+        <Experience />
         <Education />
         <Contact />
       </main>

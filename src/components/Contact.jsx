@@ -83,7 +83,7 @@ export default function Contact() {
           {/* Section label */}
           <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-4">
             <span className="text-xs font-mono text-accent-cyan tracking-widest uppercase">
-              05 / Contact
+              06 / Contact
             </span>
             <div className="h-px flex-1 max-w-xs
                             bg-gradient-to-r from-accent-cyan/30 to-transparent" />

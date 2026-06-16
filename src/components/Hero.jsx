@@ -7,7 +7,7 @@ import { personalInfo, stats } from '../data/portfolio';
 const ROLES = [
   "AI/ML Engineer",
   "Agentic AI Engineer",
-  "Data Analyst",
+  "Backend Engineer",
   "AI Product Builder",
   "ML Engineer",
 ];
@@ -105,7 +105,7 @@ export default function Hero() {
         >
           <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
           <span className="text-xs font-mono text-accent-cyan tracking-wider">
-            AI Engineering Intern @ Hamath · Open to full-time opportunities
+            AI Engineering Intern @ Hamath · Open to full-time — May 2026
           </span>
         </motion.div>
 

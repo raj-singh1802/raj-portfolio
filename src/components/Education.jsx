@@ -169,7 +169,7 @@ export default function Education() {
                     { year: '2022', label: 'Joined KIIT University', done: true  },
                     { year: '2024', label: 'Started AI/ML specialization', done: true  },
                     { year: '2025', label: 'Started building production AI systems', done: true  },
-                    { year: '2026', label: 'Graduating — May 2026', done: false },
+                    { year: '2026', label: 'Graduated — May 2026', done: true },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <div className={`w-2 h-2 rounded-full flex-shrink-0

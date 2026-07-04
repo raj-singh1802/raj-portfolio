@@ -4,7 +4,7 @@
 
 export const personalInfo = {
   name: "Raj Narayan Singh",
-  role: "AI/ML Engineer",
+  role: "AI Engineer · Agentic AI Developer · Backend Engineer",
   tagline: "Building end-to-end AI systems that ship to production.",
   subTagline: "From concept to deployed product — in days, not months.",
   location: "Bokaro Steel City, Jharkhand, India",

@@ -11,28 +11,22 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.08 } },
 };
 
-function SkillBar({ name, level, index }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-50px' });
+function getLevelColor(level) {
+  switch (level) {
+    case 'Advanced':        return 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30';
+    case 'Intermediate':    return 'bg-accent-cyan/10 text-accent-cyan border-accent-cyan/20';
+    case 'Working Knowledge': return 'bg-amber-500/10 text-amber-400 border-amber-500/20';
+    default:                return 'bg-accent-cyan/10 text-accent-cyan border-accent-cyan/20';
+  }
+}
 
+function SkillBar({ name, level }) {
   return (
-    <div ref={ref} className="space-y-1.5">
-      <div className="flex justify-between items-center">
-        <span className="text-sm font-body text-text-secondary">{name}</span>
-        <span className="text-xs font-mono text-text-muted">{level}%</span>
-      </div>
-      <div className="h-1 bg-bg-secondary rounded-full overflow-hidden">
-        <motion.div
-          className="h-full rounded-full bg-gradient-to-r from-accent-cyan to-accent-teal"
-          initial={{ width: 0 }}
-          animate={inView ? { width: `${level}%` } : { width: 0 }}
-          transition={{
-            duration: 1.2,
-            delay: index * 0.08,
-            ease: [0.4, 0, 0.2, 1],
-          }}
-        />
-      </div>
+    <div className="flex items-center justify-between py-1.5">
+      <span className="text-sm font-body text-text-secondary">{name}</span>
+      <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${getLevelColor(level)}`}>
+        {level}
+      </span>
     </div>
   );
 }
@@ -111,7 +105,7 @@ export default function Skills() {
           </motion.div>
 
           {/* Skill cards grid */}
-          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
             {skills.map((s, i) => (
               <SkillCard key={s.category} {...s} index={i} />
             ))}

@@ -30,10 +30,10 @@ const STACK_ITEMS = [
 ];
 
 const HERO_STATS = [
-  { value: 7,  suffix: '+', label: 'Production Projects'   },
-  { value: 500, suffix: '+', label: 'Records Analyzed'      },
-  { value: 2,  suffix: '',  label: 'Industry Internships'    },
-  { value: 5,  suffix: '',  label: 'Fastest Product Build',  meta: '5 Days' },
+  { value: 2,  suffix: '',  label: 'Enterprise AI Platforms', meta: '2 Platforms' },
+  { value: 7,  suffix: '+', label: 'Production Systems'                        },
+  { value: 7,  suffix: '',  label: 'Docker Services',       meta: '7 Services' },
+  { value: 500, suffix: '+', label: 'Business Records'                         },
 ];
 
 const TECH_LOGOS = [
@@ -308,8 +308,9 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.25 }}
               className="text-text-secondary text-base md:text-lg leading-relaxed max-w-xl mb-10"
             >
-              From LLM-powered interview automation to enterprise payment recovery
-              platforms, I build AI systems that solve real business problems.
+              From AI-powered event photography and enterprise payment recovery to intelligent
+              interview automation, I design and deploy enterprise AI products powered by
+              Computer Vision, Agentic AI, Large Language Models, and scalable backend architecture.
             </motion.p>
 
             {/* CTAs */}
@@ -328,13 +329,13 @@ export default function Hero() {
                 Download Resume
               </a>
               <div className="flex items-center gap-2">
-                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer"
+                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"
                   className="w-10 h-10 flex items-center justify-center rounded-xl border border-border-subtle
                              text-text-muted hover:text-accent-cyan hover:border-border-active transition-all
                              hover:bg-accent-glow">
                   <Github size={17} />
                 </a>
-                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer"
+                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                   className="w-10 h-10 flex items-center justify-center rounded-xl border border-border-subtle
                              text-text-muted hover:text-accent-cyan hover:border-border-active transition-all
                              hover:bg-accent-glow">

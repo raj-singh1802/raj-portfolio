@@ -1,6 +1,6 @@
 # Raj Narayan Singh — Portfolio Documentation
 
-> **Last Updated:** June 2026  
+> **Last Updated:** July 2026  
 > **Live Site:** [raj-portfolio-bay-eight.vercel.app](https://raj-portfolio-bay-eight.vercel.app)  
 > **Repository:** [github.com/raj-singh1802/raj-portfolio](https://github.com/raj-singh1802/raj-portfolio)
 
@@ -131,8 +131,8 @@ raj-portfolio/
     ├── favicon.svg
     ├── icons.svg
     └── assets/
-        ├── index-CP7-28mZ.js
-        └── index-Da_TjrJa.css
+        ├── index-DXramWiT.js
+        └── index-FxyChTQs.css
 ```
 
 ---
@@ -228,7 +228,7 @@ The fixed navbar has 6 navigation links:
 - Sets up the scroll progress bar using `useScroll()` and `useSpring()`
 - Renders a global background glow effect
 - Wraps all sections in a `<main>` tag with proper z-index layering
-- **Note:** There is a duplicate `<Projects />` render on line 48; the second instance is likely a bug
+- The order of sections matches the navbar: Hero → About → Skills → Projects → Experience → Education → Contact → Footer
 
 ### 7.2 Navbar.jsx
 
@@ -249,7 +249,7 @@ The fixed navbar has 6 navigation links:
 **Roles cycled in typewriter:**
 1. AI/ML Engineer
 2. Agentic AI Engineer
-3. Data Analyst
+3. Backend Engineer
 4. AI Product Builder
 5. ML Engineer
 
@@ -283,17 +283,17 @@ The fixed navbar has 6 navigation links:
 
 | Category | Icon | Skills |
 |----------|------|--------|
-| **AI / ML** | 🤖 | LLMs & NLP (90%), Machine Learning (88%), Deep Learning (82%), Time-Series Analysis (78%), Vector Databases / FAISS (80%), LangGraph / LangChain (82%), Prompt Engineering (85%), Agentic AI / Orchestration (78%) |
-| **Engineering** | ⚙️ | Python (92%), FastAPI (85%), Streamlit (90%), REST APIs (88%), Workflow Automation (80%) |
-| **Data** | 📊 | SQL (85%), Pandas / NumPy (90%), Plotly / Matplotlib (85%), Power BI / DAX (75%), Excel / EDA (80%) |
-| **Deployment** | 🚀 | Streamlit Cloud (90%), Render Cloud (82%), Vercel / Netlify (80%), Groq API / LLM APIs (88%), Joblib / Model Serving (78%) |
+| **AI & LLMs** | 🤖 | LLM Integration & Prompt Eng. (90%), Agentic AI & Orchestration (82%), LangGraph / LangChain (80%), Machine Learning / NLP (85%), FAISS / RAG Pipelines (82%) |
+| **Backend Engineering** | ⚙️ | Python / FastAPI (92%), Node.js / Express.js (72%), REST APIs & Webhooks (88%), PostgreSQL / SQL (82%), Docker (68%) |
+| **Data & Analytics** | 📊 | Pandas / NumPy (90%), Plotly / Matplotlib (85%), Power BI / DAX (75%), EDA & Statistical Analysis (80%) |
+| **Deployment & Tools** | 🚀 | Streamlit Cloud (90%), Render / Vercel (82%), Groq API / LLM APIs (88%), Prisma ORM (72%), Git / GitHub (88%) |
 
 **Additional Skills Tags (section footer):**
-TensorFlow, PyTorch, Scikit-learn, Sentence Transformers, LangGraph, LangChain, FAISS, Groq API, LLaMA-3.3, Whisper-v3, gTTS, ReportLab, Joblib, Power BI, DAX, Power Query, Prompt Engineering, Agentic AI, Webhook Integration, WhatsApp Cloud API
+Scikit-learn, TensorFlow, PyTorch, Sentence Transformers, Groq API, LLaMA-3.3, Whisper-v3, gTTS, Joblib, Prisma ORM, Redis, Socket.IO, Twilio, Power BI, DAX, Power Query, Prompt Engineering, Webhook Integration, WhatsApp Cloud API, CompreFace, Next.js, Spring Boot
 
 ### 7.6 Projects.jsx
 
-**Filter Options:** All, Python, FastAPI, Streamlit, LLM, ML, NLP, Deep Learning, FAISS, LangChain, LangGraph
+**Filter Options:** All, Python, FastAPI, LLM, Agentic AI, ML, NLP, FAISS, LangGraph, Node.js, Docker
 
 **Project Cards:** Each shows:
 - Icon + Title + Status badge (Live/Unreleased)
@@ -312,7 +312,7 @@ TensorFlow, PyTorch, Scikit-learn, Sentence Transformers, LangGraph, LangChain, 
 - Full tech stack
 - All available links (Live Demo, API Docs, GitHub)
 
-**Note:** There are 4 projects in the data, but they render in a 2-column grid.
+**Note:** There are 6 projects in the data, rendered in a 2-column grid. Filtering hides projects that don't match the selected tech tag.
 
 ### 7.7 Experience.jsx
 
@@ -403,36 +403,32 @@ Both accept `size`, `className`, and other SVG props.
 
 Full skill breakdown with proficiency levels (0–100%):
 
-### AI / ML
-- LLMs & NLP: 90%
-- Machine Learning: 88%
-- Deep Learning: 82%
-- Time-Series Analysis: 78%
-- Vector Databases (FAISS): 80%
-- LangGraph / LangChain: 82%
-- Prompt Engineering: 85%
-- Agentic AI / Orchestration: 78%
+### AI & LLMs
+- LLM Integration & Prompt Eng.: 90%
+- Agentic AI & Orchestration: 82%
+- LangGraph / LangChain: 80%
+- Machine Learning / NLP: 85%
+- FAISS / RAG Pipelines: 82%
 
-### Engineering
-- Python: 92%
-- FastAPI: 85%
-- Streamlit: 90%
-- REST APIs: 88%
-- Workflow Automation: 80%
+### Backend Engineering
+- Python / FastAPI: 92%
+- Node.js / Express.js: 72%
+- REST APIs & Webhooks: 88%
+- PostgreSQL / SQL: 82%
+- Docker: 68%
 
-### Data
-- SQL: 85%
+### Data & Analytics
 - Pandas / NumPy: 90%
 - Plotly / Matplotlib: 85%
 - Power BI / DAX: 75%
-- Excel / EDA: 80%
+- EDA & Statistical Analysis: 80%
 
-### Deployment
+### Deployment & Tools
 - Streamlit Cloud: 90%
-- Render Cloud: 82%
-- Vercel / Netlify: 80%
+- Render / Vercel: 82%
 - Groq API / LLM APIs: 88%
-- Joblib / Model Serving: 78%
+- Prisma ORM: 72%
+- Git / GitHub: 88%
 
 ---
 
@@ -491,6 +487,32 @@ Full skill breakdown with proficiency levels (0–100%):
 | **Metrics** | Intent Classes: 5-class, Vector Chunks: ~32 chunks, Test Coverage: 18/18 ✓, Fallback Mode: Zero-API |
 | **Key Achievement** | Modular LangGraph nodes with conditional routing, stateful multi-turn lead capture, and full fallback mode — no LLM API dependency required |
 | **Links** | [GitHub](https://github.com/raj-singh1802/autostream-agent) |
+
+### Project 5: RevenueGuard AI
+
+| Field | Details |
+|-------|---------|
+| **Status** | In Dev 🟣 |
+| **Tagline** | Enterprise Agentic AI payment recovery platform with LLM orchestration and rule-based workflow engine |
+| **Description** | Architected an enterprise Agentic AI payment recovery platform using Node.js/Express and PostgreSQL/Prisma. Built 8-service modular backend with Risk Scoring Engine, Priority Engine, Broken Commitment Detection, and AI Recommendation Engine. Integrated Groq LLM (Llama 3.3-70B) for personalized recovery strategy generation — combining deterministic business rules with LLM reasoning. All AI decisions stored in structured PostgreSQL memory enabling traceable, auditable recovery history per customer. |
+| **Display Tech** | Node.js, LLM, Agentic AI, PostgreSQL |
+| **Full Tech Stack** | Node.js, Express.js, PostgreSQL, Prisma ORM, Groq API, LLaMA-3.3-70B, Redis, Twilio, Socket.IO |
+| **Metrics** | Customer Records: 500+, Invoice Dataset: 500+, Backend Services: 8 modules, LLM Model: Llama 3.3-70B |
+| **Key Achievement** | Combined deterministic rule engine with Groq LLM reasoning — generating risk summaries, recovery strategies, and escalation plans with full AI decision auditability |
+| **Links** | [GitHub](https://github.com/raj-singh1802/RevenueGuard-AI) |
+
+### Project 6: EventLens AI
+
+| Field | Details |
+|-------|---------|
+| **Status** | In Dev 🟣 |
+| **Tagline** | AI-powered event photography platform matching guests to their photos via facial recognition |
+| **Description** | Built a full-stack AI event photography platform using Next.js 16 and Spring Boot 3.4 with CompreFace facial recognition. Photographers upload photos which are auto-detected, face-cropped, and registered against subject profiles. Guests take a selfie to instantly retrieve all photos they appear in. Features hybrid fallback mode (direct CompreFace calls when backend unreachable), JWT authentication, Redis caching, and full Docker orchestration across 7 services. Solved Snapchat/HEIC metadata rejection via dual re-encoding pipeline. |
+| **Display Tech** | Docker, Node.js |
+| **Full Tech Stack** | Next.js 16, Spring Boot 3.4, CompreFace, PostgreSQL, Redis, Docker, JWT, Zustand, Java |
+| **Metrics** | Docker Services: 7 services, Match Confidence: 80% thresh., Architecture: Hybrid, Auth: JWT + Redis |
+| **Key Achievement** | Solved CompreFace metadata rejection via dual re-encoding pipeline — canvas + ImageIO both strip progressive markers and re-encode to JPEG 0.95 before face recognition |
+| **Links** | [GitHub](https://github.com/raj-singh1802/EventLens-AI) |
 
 ---
 
@@ -633,8 +655,8 @@ dist/
 ├── favicon.svg
 ├── icons.svg
 └── assets/
-    ├── index-CP7-28mZ.js      # Bundled JavaScript
-    └── index-Da_TjrJa.css     # Bundled CSS
+    ├── index-DXramWiT.js      # Bundled JavaScript
+    └── index-FxyChTQs.css     # Bundled CSS
 ```
 
 ---
@@ -674,14 +696,6 @@ linkedin: "https://linkedin.com/in/your-profile",
 ---
 
 ## Known Issues / Notes
-
-### Bug in App.jsx
-There is a duplicate `<Projects />` component on **line 48** of `src/App.jsx`. The component is rendered twice:
-```jsx
-<Projects />   {/* line 47 */}
-<Projects />   {/* line 48 — duplicate, likely a bug */}
-```
-This causes the project section's filters and state to be duplicated, which may cause unexpected behavior. The second instance should be removed.
 
 ### Inline Email in Contact.jsx
 The contact email is hardcoded in `contactLinks` array (line 19) rather than using the `personalInfo.email` reference. If updating the email, both locations must be changed.

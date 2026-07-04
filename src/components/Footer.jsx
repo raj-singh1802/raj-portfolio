@@ -1,15 +1,14 @@
 import { motion } from 'framer-motion';
-import { Mail, Terminal, Heart } from 'lucide-react';
+import { Mail, Terminal, Heart, GraduationCap, MapPin, Calendar, Star } from 'lucide-react';
 import { Github, Linkedin } from './BrandIcons';
-import { personalInfo } from '../data/portfolio';
+import { personalInfo, education } from '../data/portfolio';
 
 const navLinks = [
-  { label: 'About',     href: '#about'     },
-  { label: 'Skills',    href: '#skills'    },
-  { label: 'Projects',  href: '#projects'  },
+  { label: 'About',      href: '#about'      },
+  { label: 'Projects',   href: '#projects'   },
   { label: 'Experience', href: '#experience' },
-  { label: 'Education', href: '#education' },
-  { label: 'Contact',   href: '#contact'   },
+  { label: 'Architecture', href: '#architecture' },
+  { label: 'Contact',    href: '#contact'    },
 ];
 
 const socialLinks = [
@@ -34,7 +33,7 @@ export default function Footer() {
       <div className="section-padding py-12">
         <div className="max-w-6xl mx-auto">
 
-          <div className="grid md:grid-cols-3 gap-10 mb-10">
+          <div className="grid md:grid-cols-4 gap-10 mb-10">
 
             {/* Brand */}
             <div>
@@ -51,6 +50,34 @@ export default function Footer() {
                 Building end-to-end AI systems that ship to production.
                 Open to AI Engineer and ML Engineer opportunities.
               </p>
+            </div>
+
+            {/* Education */}
+            <div>
+              <p className="text-xs font-mono text-text-muted uppercase tracking-widest mb-4">
+                Education
+              </p>
+              {education.map((edu, i) => (
+                <div key={i} className="card-base p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <GraduationCap size={14} className="text-accent-cyan" />
+                    <span className="text-sm font-display font-semibold text-text-primary">
+                      {edu.degree}
+                    </span>
+                  </div>
+                  <p className="text-xs text-text-muted mb-2">{edu.institution}</p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="flex items-center gap-1 text-[10px] font-mono text-text-muted">
+                      <Calendar size={10} className="text-accent-cyan/60" />
+                      {edu.period}
+                    </span>
+                    <span className="flex items-center gap-1 text-[10px] font-mono text-text-muted">
+                      <Star size={10} className="text-accent-cyan/60" />
+                      GPA {edu.gpa}
+                    </span>
+                  </div>
+                </div>
+              ))}
             </div>
 
             {/* Nav links */}

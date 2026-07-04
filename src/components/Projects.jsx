@@ -13,21 +13,27 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
-function ScreenshotPlaceholder({ alt, caption, color }) {
+function ScreenshotPlaceholder({ src, alt, caption, color }) {
   return (
-    <div className="relative rounded-xl overflow-hidden border border-border-subtle bg-bg-secondary/80 group cursor-pointer">
-      <div className="aspect-video flex flex-col items-center justify-center gap-3"
-        style={{ background: `linear-gradient(135deg, ${color}08, ${color}03)` }}>
-        <Monitor size={32} className="text-accent-cyan/20" />
-        <div className="flex gap-1.5">
-          <div className="w-1.5 h-1.5 rounded-full bg-accent-cyan/20" />
-          <div className="w-1.5 h-1.5 rounded-full bg-accent-cyan/30" />
-          <div className="w-1.5 h-1.5 rounded-full bg-accent-cyan/20" />
+    <div className="relative rounded-xl overflow-hidden border border-border-subtle bg-bg-secondary/80 group">
+      {src ? (
+        <img
+          src={src}
+          alt={alt}
+          className="w-full aspect-video object-cover"
+          loading="lazy"
+        />
+      ) : (
+        <div className="aspect-video flex flex-col items-center justify-center gap-3"
+          style={{ background: `linear-gradient(135deg, ${color}08, ${color}03)` }}>
+          <Monitor size={32} className="text-accent-cyan/20" />
+          <div className="flex gap-1.5">
+            <div className="w-1.5 h-1.5 rounded-full bg-accent-cyan/20" />
+            <div className="w-1.5 h-1.5 rounded-full bg-accent-cyan/30" />
+            <div className="w-1.5 h-1.5 rounded-full bg-accent-cyan/20" />
+          </div>
         </div>
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-bg-primary/60">
-        <span className="text-xs font-mono text-accent-cyan">View screenshot</span>
-      </div>
+      )}
       {caption && (
         <div className="px-3 py-2 border-t border-border-subtle">
           <p className="text-[10px] text-text-muted font-mono">{caption}</p>

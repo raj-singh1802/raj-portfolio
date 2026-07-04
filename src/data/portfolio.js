@@ -4,7 +4,7 @@
 
 export const personalInfo = {
   name: "Raj Narayan Singh",
-  role: "AI Engineer · Agentic AI Developer · Backend Engineer",
+  role: "AI Engineer | Agentic AI | Backend Engineering",
   tagline: "Building end-to-end AI systems that ship to production.",
   subTagline: "From concept to deployed product — in days, not months.",
   location: "Bokaro Steel City, Jharkhand, India",
@@ -15,7 +15,7 @@ export const personalInfo = {
   university: "KIIT University",
   degree: "B.Tech Computer Science",
   gpa: "8.23 / 10",
-  graduation: "Graduated May 2026",
+  graduation: "B.Tech CSE, KIIT — May 2026",
 };
 
 export const stats = [
@@ -27,61 +27,115 @@ export const stats = [
 
 export const skills = [
   {
-    category: "AI & LLMs",
-    icon: "🤖",
+    category: "AI Engineering",
+    icon: "🧠",
     items: [
-      { name: "LLM Integration & Prompt Eng.", level: 90 },
-      { name: "Agentic AI & Orchestration",    level: 82 },
-      { name: "LangGraph / LangChain",         level: 80 },
-      { name: "Machine Learning / NLP",        level: 85 },
-      { name: "FAISS / RAG Pipelines",         level: 82 },
+      { name: "LLM Integration & Prompt Engineering",    level: "Advanced"      },
+      { name: "Agentic AI & Orchestration (LangGraph)",  level: "Advanced"      },
+      { name: "RAG Pipelines & Vector Search (FAISS)",   level: "Advanced"      },
+      { name: "Machine Learning & NLP",                  level: "Advanced"      },
     ],
   },
   {
     category: "Backend Engineering",
     icon: "⚙️",
     items: [
-      { name: "Python / FastAPI",       level: 92 },
-      { name: "Node.js / Express.js",   level: 72 },
-      { name: "REST APIs & Webhooks",   level: 88 },
-      { name: "PostgreSQL / SQL",       level: 82 },
-      { name: "Docker",                 level: 68 },
+      { name: "Python / FastAPI",      level: "Advanced"       },
+      { name: "Node.js / Express",     level: "Intermediate"   },
+      { name: "Spring Boot (Java)",    level: "Intermediate"   },
+      { name: "PostgreSQL / Prisma",   level: "Advanced"       },
+      { name: "REST APIs & Webhooks",  level: "Advanced"       },
     ],
   },
   {
-    category: "Data & Analytics",
-    icon: "📊",
+    category: "Computer Vision",
+    icon: "👁️",
     items: [
-      { name: "Pandas / NumPy",          level: 90 },
-      { name: "Plotly / Matplotlib",     level: 85 },
-      { name: "Power BI / DAX",          level: 75 },
-      { name: "EDA & Statistical Analysis", level: 80 },
+      { name: "CompreFace Facial Recognition", level: "Intermediate" },
+      { name: "Image Processing Pipelines",    level: "Intermediate" },
     ],
   },
   {
-    category: "Deployment & Tools",
-    icon: "🚀",
+    category: "Cloud & Infrastructure",
+    icon: "☁️",
     items: [
-      { name: "Streamlit Cloud",         level: 90 },
-      { name: "Render / Vercel",         level: 82 },
-      { name: "Groq API / LLM APIs",     level: 88 },
-      { name: "Prisma ORM",              level: 72 },
-      { name: "Git / GitHub",            level: 88 },
+      { name: "Docker & Multi-Service Orchestration", level: "Intermediate" },
+      { name: "Redis Caching & Session Management",  level: "Intermediate" },
+      { name: "Streamlit Cloud / Render / Vercel",    level: "Advanced"      },
+    ],
+  },
+  {
+    category: "Frontend",
+    icon: "🎨",
+    items: [
+      { name: "React / Next.js", level: "Intermediate" },
+      { name: "Tailwind CSS",    level: "Advanced"      },
+      { name: "Framer Motion",   level: "Intermediate" },
     ],
   },
 ];
 
 export const CATEGORIES = ['All', 'LLMs', 'Agentic AI', 'Computer Vision', 'Machine Learning', 'Backend'];
 
+export const architectures = [
+  {
+    id: 'eventlens',
+    title: 'EventLens AI',
+    tagline: 'Enterprise event photography platform with facial recognition',
+    color: '#8b5cf6',
+    icon: '📸',
+    nodes: [
+      { id: 'nextjs',  label: 'Next.js 16',     layer: 0, detail: 'React frontend with Zustand state management, canvas-based HEIC re-encoding, and responsive gallery UI for event attendees.' },
+      { id: 'jwt',     label: 'JWT Auth',        layer: 1, detail: 'JSON Web Token authentication securing all API requests between frontend, backend, and storage layers.' },
+      { id: 'spring',  label: 'Spring Boot 3.4', layer: 1, detail: 'Java backend with multipart upload handling, ImageIO re-encoding pipeline, and REST controllers for face registration and search.' },
+      { id: 'redis',   label: 'Redis Cache',     layer: 2, detail: 'In-memory session caching for JWT token validation and frequent face search results, reducing database load.' },
+      { id: 'gcs',     label: 'Cloud Storage',   layer: 2, detail: 'Provider-agnostic storage layer for uploaded event photos and generated galleries, with signed URL delivery.' },
+      { id: 'compreface', label: 'CompreFace',   layer: 2, detail: 'Self-hosted facial recognition service with 80% confidence threshold, face detection, cropping, and subject registration.' },
+      { id: 'postgres', label: 'PostgreSQL',     layer: 3, detail: 'Relational database storing event metadata, subject profiles, face embeddings references, and gallery mappings.' },
+      { id: 'docker',  label: 'Docker (7 svc)',  layer: 3, detail: '7-container orchestration including frontend, backend, CompreFace, PostgreSQL, Redis, and supporting services.' },
+      { id: 'gallery', label: 'Personal Gallery', layer: 4, detail: 'End-user experience: guests upload a selfie and instantly retrieve all event photos they appear in.' },
+    ],
+    connections: [
+      ['nextjs', 'jwt'], ['jwt', 'spring'],
+      ['spring', 'redis'], ['spring', 'gcs'], ['spring', 'compreface'],
+      ['compreface', 'postgres'], ['gcs', 'gallery'], ['postgres', 'gallery'],
+    ],
+  },
+  {
+    id: 'revenueguard',
+    title: 'RevenueGuard AI',
+    tagline: 'Enterprise Agentic AI payment recovery platform',
+    color: '#f59e0b',
+    icon: '🛡️',
+    nodes: [
+      { id: 'api',        label: 'API Gateway',      layer: 0, detail: 'Node.js/Express entry point routing requests to 8 microservices with request validation, rate limiting, and webhook handling.' },
+      { id: 'risk',       label: 'Risk Engine',       layer: 1, detail: 'Rule-based scoring engine evaluating invoice risk based on payment history, amount, customer segment, and overdue duration.' },
+      { id: 'priority',   label: 'Priority Engine',   layer: 1, detail: 'Deterministic scheduler ranking recovery actions by risk score, customer value, and business rules.' },
+      { id: 'llm',        label: 'Groq LLM',          layer: 2, detail: 'LLaMA 3.3-70B generating personalized recovery strategies — risk summaries, payment plans, and escalation recommendations.' },
+      { id: 'recommend',  label: 'Recommendation Engine', layer: 2, detail: 'Combines LLM output with rule-based validation to produce actionable recovery recommendations with confidence scores.' },
+      { id: 'memory',     label: 'PostgreSQL Memory', layer: 3, detail: 'Structured audit trail storing every AI decision — risk scores, strategies, commitments, and escalation actions with timestamps.' },
+      { id: 'notify',     label: 'Notification',     layer: 3, detail: 'Twilio SMS and email pipeline for automated customer re-engagement, commitment reminders, and escalation alerts.' },
+      { id: 'recovery',   label: 'Recovery Workflow', layer: 4, detail: 'End-to-end automated recovery: risk assessment → LLM strategy → customer outreach → commitment tracking → escalation.' },
+    ],
+    connections: [
+      ['api', 'risk'], ['api', 'priority'],
+      ['risk', 'llm'], ['priority', 'llm'],
+      ['llm', 'recommend'], ['risk', 'recommend'], ['priority', 'recommend'],
+      ['recommend', 'memory'], ['recommend', 'notify'],
+      ['memory', 'recovery'], ['notify', 'recovery'],
+    ],
+  },
+];
+
 export const projects = [
   {
     id: 1,
     title: "AI Tutor Screener",
     tagline: "End-to-end AI voice interview system — concept to deployment in 5 days",
-    shortDesc: "Production-ready voice-based interview platform that screens tutor candidates automatically with adaptive AI questioning.",
-    description: "Built a production-ready voice-based interview platform that screens tutor candidates automatically. Features real-time speech-to-text (Groq Whisper), adaptive AI questioning (LLaMA-3.1), and structured evaluation across 5 pedagogical dimensions with evidence-based scoring.",
+    shortDesc: "Production-ready voice-based interview product that screens tutor candidates automatically with adaptive AI questioning.",
+    description: "Engineered a production-ready voice-based interview product that screens tutor candidates automatically. Features real-time speech-to-text (Groq Whisper), adaptive AI questioning (LLaMA-3.1), and structured evaluation across 5 pedagogical dimensions with evidence-based scoring.",
     problem: "Tutor recruitment agencies screen hundreds of candidates manually — scheduling calls, taking notes, and evaluating communication skills inconsistently. The process is slow, subjective, and doesn't scale.",
-    architecture: "Browser → FastAPI backend → Groq Whisper (STT) → LLaMA-3.3-70b (LLM) → gTTS (TTS) → ReportLab (PDF)",
+    architecture: "Browser → FastAPI → Groq Whisper (STT) → LLaMA-3.3-70b (LLM) → gTTS (TTS) → ReportLab (PDF)",
     challenges: [
       { challenge: "Real-time speech-to-text",    solution: "Groq Whisper API with <2s transcription latency for natural conversation flow" },
       { challenge: "Adaptive question generation", solution: "Dynamic prompt engineering that tailors follow-ups based on previous candidate responses" },
@@ -90,7 +144,7 @@ export const projects = [
     ],
     businessImpact: "Reduces manual interview time by 80% while ensuring consistent, unbiased candidate evaluation at scale. Deployed end-to-end in 5 days.",
     category: "LLMs",
-    featured: true,
+    featured: false,
     tech: ["FastAPI", "Streamlit", "LLM", "NLP", "Python"],
     techStack: ["FastAPI", "Streamlit", "Groq API", "LLaMA-3.3-70b", "Whisper-v3", "gTTS", "ReportLab", "Plotly"],
     metrics: [
@@ -99,11 +153,11 @@ export const projects = [
       { label: "Transcription Latency", value: "<2s"      },
       { label: "Built In",              value: "5 Days"   },
     ],
-    achievement: "Complete voice-first UX with adaptive follow-up questions based on candidate responses",
+    achievement: "Complete voice-first product with adaptive follow-up questions based on candidate responses",
     screenshots: [
-      { alt: "Interview dashboard", caption: "AI-powered interview management interface" },
-      { alt: "Radar evaluation chart", caption: "5-dimensional pedagogical scoring with evidence tracking" },
-      { alt: "Generated PDF report", caption: "Structured evaluation report with transcripts and scores" },
+      { src: "/screenshots/tutor/dashboard.png",  alt: "Interview dashboard", caption: "Live interview session with real-time transcription and adaptive questioning" },
+      { src: "/screenshots/tutor/radar.png",      alt: "Radar evaluation chart", caption: "5-dimensional pedagogical scoring — communication, subject knowledge, engagement, clarity, adaptability" },
+      { src: "/screenshots/tutor/report.png",     alt: "Generated PDF report", caption: "Structured evaluation PDF with dimension scores, transcript, and evidence-based feedback" },
     ],
     links: {
       live:   "https://ai-tutor-screener.streamlit.app",
@@ -117,9 +171,9 @@ export const projects = [
   {
     id: 6,
     title: "RevenueGuard AI",
-    tagline: "Enterprise Agentic AI payment recovery platform with LLM orchestration and rule-based workflow engine",
-    shortDesc: "Production-grade AI debt recovery system combining rule-based risk scoring, Groq LLM strategy generation, and autonomous commitment tracking across 500+ customer invoices.",
-    description: "Architected an enterprise Agentic AI payment recovery platform using Node.js/Express and PostgreSQL/Prisma. Built 8-service modular backend with Risk Scoring Engine, Priority Engine, Broken Commitment Detection, and AI Recommendation Engine. Integrated Groq LLM (Llama 3.3-70B) for personalized recovery strategy generation — combining deterministic business rules with LLM reasoning. Stored all AI decisions in structured PostgreSQL memory enabling traceable, auditable recovery history per customer. Designing LangGraph-based autonomous multi-agent architecture for future orchestration.",
+    tagline: "Enterprise Agentic AI platform combining deterministic rule engines with LLM reasoning to automate payment recovery across 500+ invoices",
+    shortDesc: "Enterprise Agentic AI platform that combines deterministic rule engines with LLM reasoning to automate payment recovery workflows across 500+ invoices using modular backend services and future-ready multi-agent orchestration.",
+    description: "Engineered an enterprise Agentic AI payment recovery product using Node.js/Express and PostgreSQL/Prisma. Designed an 8-service modular backend architecture including Risk Scoring Engine, Priority Engine, Broken Commitment Detection, and AI Recommendation Engine. Integrated Groq LLM (Llama 3.3-70B) to generate personalized recovery strategies combining deterministic business rules with LLM reasoning. Implemented structured PostgreSQL memory for every AI decision — storing risk summaries, recovery strategies, and escalation plans per customer with full auditability. Architecting LangGraph-based autonomous multi-agent orchestration for future workflow automation.",
     problem: "Businesses with 500+ outstanding invoices struggle with manual payment recovery — inconsistent follow-ups, no prioritization, and no audit trail for recovery actions taken.",
     architecture: "Node.js/Express → PostgreSQL/Prisma → 8 microservices (Risk, Priority, Detection, AI, Notification, etc.) → Groq LLM → Redis → Twilio",
     challenges: [
@@ -130,7 +184,7 @@ export const projects = [
     ],
     businessImpact: "Automates payment recovery for 500+ invoices with personalized AI strategies, reducing manual follow-up effort and improving recovery rates through intelligent prioritization.",
     category: "Agentic AI",
-    featured: false,
+    featured: true,
     tech: ["Node.js", "LLM", "Agentic AI", "PostgreSQL"],
     techStack: ["Node.js", "Express.js", "PostgreSQL", "Prisma ORM", "Groq API", "LLaMA-3.3-70B", "Redis", "Twilio", "Socket.IO"],
     metrics: [
@@ -139,25 +193,25 @@ export const projects = [
       { label: "Backend Services", value: "8 modules"     },
       { label: "LLM Model",        value: "Llama 3.3-70B" },
     ],
-    achievement: "Combined deterministic rule engine with Groq LLM reasoning — generating risk summaries, recovery strategies, and escalation plans per customer with full AI decision auditability",
+    achievement: "Combined deterministic rule engine with Groq LLM reasoning — generating risk summaries, recovery strategies, and escalation plans per customer with full AI decision audit trail",
     screenshots: [
-      { alt: "Dashboard overview", caption: "Payment recovery dashboard with real-time metrics" },
-      { alt: "Architecture diagram", caption: "8-service modular architecture with LLM integration" },
-      { alt: "Agent workflow", caption: "LangGraph-based agent orchestration flow" },
+      { src: "/screenshots/revenueguard/dashboard.png", alt: "Recovery dashboard", caption: "Payment recovery overview with risk scores, priority queue, and recovery status per invoice" },
+      { src: "/screenshots/revenueguard/strategy.png",  alt: "AI strategy view", caption: "LLM-generated recovery strategy with risk summary, recommended action, and escalation plan" },
+      { src: "/screenshots/revenueguard/architecture.png", alt: "Architecture diagram", caption: "8-service modular architecture — Risk Engine, Priority Engine, AI Recommendation, Notification" },
     ],
     links: {
       github: "https://github.com/raj-singh1802/RevenueGuard-AI",
     },
     color: "#f59e0b",
     icon: "🛡️",
-    status: "In Dev",
+    status: "Production Ready",
   },
   {
     id: 7,
     title: "EventLens AI",
-    tagline: "AI-powered event photography platform matching guests to their photos via facial recognition",
-    shortDesc: "Full-stack platform where photographers upload event photos and guests instantly find all their pictures using a selfie — powered by CompreFace facial recognition.",
-    description: "Built a full-stack AI event photography platform using Next.js 16 and Spring Boot 3.4 with CompreFace facial recognition. Photographers upload photos which are auto-detected, face-cropped, and registered against subject profiles. Guests take a selfie to instantly retrieve all photos they appear in. Features hybrid fallback mode (direct CompreFace calls when backend unreachable), JWT authentication, Redis caching, and full Docker orchestration across 7 services. Solved Snapchat/HEIC metadata rejection via dual re-encoding pipeline — both frontend (canvas) and backend (ImageIO) re-encode to JPEG 0.95 on white background.",
+    tagline: "Enterprise event photography platform combining Spring Boot, Next.js, Redis, Docker, and CompreFace for large-scale facial recognition",
+    shortDesc: "Enterprise event photography platform combining Spring Boot, Next.js, Google Cloud Storage, Redis, Docker, and CompreFace to automate large-scale face recognition, personalized gallery generation, and secure cloud media delivery.",
+    description: "Architected an enterprise event photography platform using Next.js 16 and Spring Boot 3.4 with CompreFace facial recognition. Engineered a dual re-encoding pipeline (canvas frontend + ImageIO backend) solving Snapchat/HEIC metadata rejection by stripping progressive markers and re-encoding to JPEG 0.95 on white background. Implemented hybrid fallback architecture for direct CompreFace API calls when the backend is unreachable. Designed 7-service Docker orchestration with JWT authentication, Redis caching, and Google Cloud Storage integration for secure media delivery at event scale.",
     problem: "Event photographers take thousands of photos, but guests struggle to find pictures of themselves. Manual sorting doesn't scale, and existing facial recognition tools aren't designed for event workflows.",
     architecture: "Next.js 16 → Spring Boot 3.4 → CompreFace API → PostgreSQL → Redis → Docker (7 services) → JWT Auth",
     challenges: [
@@ -168,7 +222,7 @@ export const projects = [
     ],
     businessImpact: "Eliminates manual photo sorting at events — guests find their photos in seconds instead of browsing hundreds of images. Photographers deliver a premium experience.",
     category: "Computer Vision",
-    featured: false,
+    featured: true,
     tech: ["Docker", "Node.js"],
     techStack: ["Next.js 16", "Spring Boot 3.4", "CompreFace", "PostgreSQL", "Redis", "Docker", "JWT", "Zustand", "Java"],
     metrics: [
@@ -177,18 +231,18 @@ export const projects = [
       { label: "Architecture",    value: "Hybrid"      },
       { label: "Auth",            value: "JWT + Redis"  },
     ],
-    achievement: "Solved CompreFace metadata rejection via dual re-encoding pipeline — canvas + ImageIO both strip progressive markers and re-encode to JPEG 0.95 before face recognition",
+    achievement: "Solved CompreFace metadata rejection via dual re-encoding pipeline — canvas + ImageIO strip progressive markers and re-encode to JPEG 0.95 before face recognition",
     screenshots: [
-      { alt: "Photo upload interface", caption: "Event photo management with auto-detection" },
-      { alt: "Facial recognition result", caption: "Selfie-based photo retrieval with confidence scores" },
-      { alt: "Guest gallery view", caption: "Personalized photo gallery for event attendees" },
+      { src: "/screenshots/eventlens/upload.png",   alt: "Photo upload", caption: "Event photo upload with auto face detection, cropping, and registration pipeline" },
+      { src: "/screenshots/eventlens/search.png",   alt: "Selfie search", caption: "Guest selfie-based photo retrieval with 80% confidence face matching" },
+      { src: "/screenshots/eventlens/gallery.png",  alt: "Personal gallery", caption: "Personalized gallery showing all event photos where the guest appears" },
     ],
     links: {
       github: "https://github.com/raj-singh1802/EventLens-AI",
     },
     color: "#8b5cf6",
     icon: "📸",
-    status: "In Dev",
+    status: "Production MVP",
   },
   {
     id: 2,
@@ -325,13 +379,31 @@ export const experience = [
     type: "Remote",
     color: "#00d4d4",
     icon: "🤖",
-    points: [
-      "Developing AI-powered workflow automation and Agentic AI systems with multi-step execution pipelines using FastAPI and LLM-based architectures.",
-      "Building production-oriented conversational AI systems integrating structured execution pipelines, external APIs, and intelligent response handling.",
-      "Designing modular backend services for AI orchestration, request validation, and real-time workflow processing.",
-      "Exploring Agentic AI concepts including orchestration logic, autonomous workflow execution, and structured output generation.",
+    summary: "Leading the architecture and development of two enterprise AI platforms, combining Computer Vision, Agentic AI, scalable backend engineering, and cloud infrastructure into production-ready products.",
+    ownership: [
+      "Led development of two production AI products from concept to deployment",
+      "Owned backend architecture decisions across both products",
+      "Designed cloud infrastructure with Docker orchestration and cloud storage",
+      "Integrated Computer Vision, LLMs, and Agentic AI into business workflows",
     ],
-    tech: ["Python", "FastAPI", "LangGraph", "LLMs", "Agentic AI", "REST APIs"],
+    products: [
+      { name: "EventLens AI",     desc: "Enterprise event photography platform with facial recognition", icon: "📸", color: "#8b5cf6" },
+      { name: "RevenueGuard AI",  desc: "Agentic AI payment recovery platform with LLM orchestration",  icon: "🛡️", color: "#f59e0b" },
+    ],
+    engineering: ["Spring Boot", "Node.js", "Docker", "Redis", "PostgreSQL", "GCP", "Groq", "CompreFace"],
+    achievements: [
+      "Architected 7-container Docker system with JWT auth and Redis caching",
+      "Designed provider-agnostic cloud storage layer for media delivery",
+      "Built modular AI backend services with 8-service microservice architecture",
+      "Integrated Computer Vision pipelines and LLM reasoning into production workflows",
+    ],
+    impact: [
+      "Production-ready AI systems deployed for real business workflows",
+      "Stakeholder collaboration on product requirements and architecture",
+      "Enterprise cloud infrastructure for scalable media delivery",
+    ],
+    transition: "→ AI Engineering",
+    narrative: "Building enterprise AI platforms that combine backend engineering with intelligent models — owning architecture from Docker orchestration to LLM reasoning.",
   },
   {
     role: "Business Analyst Intern",
@@ -340,11 +412,25 @@ export const experience = [
     type: "Remote",
     color: "#00a896",
     icon: "📊",
-    points: [
-      "Engineered automated Power BI dashboards and KPI reporting pipelines using Python and SQL, reducing manual reporting effort by ~40%.",
-      "Performed EDA on multi-domain business datasets, surfacing actionable operational and product insights.",
-      "Leveraged Groq API and Generative AI for SQL drafting, EDA documentation, and insight summarization — reducing analytics turnaround by ~30%.",
+    summary: "Automated reporting pipelines and surface business insights using Python, SQL, and Generative AI — reducing manual effort by 40%.",
+    ownership: [
+      "Owned end-to-end reporting automation for multi-domain business data",
+      "Designed KPI dashboards translating raw data into executive decisions",
+      "Integrated Generative AI to accelerate analytics workflows",
     ],
-    tech: ["Python", "SQL", "Power BI", "Groq API", "EDA", "Plotly"],
+    products: [],
+    engineering: ["Python", "SQL", "Power BI", "DAX", "Groq API", "Plotly"],
+    achievements: [
+      "Reduced manual reporting effort by ~40% through automated Power BI pipelines",
+      "Reduced analytics turnaround by ~30% using Gen AI for SQL and documentation",
+      "Surfaced actionable insights from multi-domain operational datasets",
+    ],
+    impact: [
+      "40% reduction in manual reporting effort through automation",
+      "30% faster analytics turnaround with Generative AI integration",
+      "Data-driven decision making for cross-functional stakeholders",
+    ],
+    transition: "→ Data & Analytics",
+    narrative: "Built the data foundation — automated reporting, statistical analysis, and Generative AI workflows that informed business decisions across the organization. This experience established the data engineering and business analysis foundation that now supports my AI engineering work.",
   },
 ];

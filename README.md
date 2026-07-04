@@ -8,7 +8,7 @@ A modern, production-ready developer portfolio showcasing AI/ML projects, skills
 
 ## 🛠️ Tech Stack
 
-- **Framework:** React 18 + Vite
+- **Framework:** React 19 + Vite 8
 - **Styling:** Tailwind CSS v3
 - **Animations:** Framer Motion
 - **Icons:** Lucide React
@@ -19,7 +19,7 @@ A modern, production-ready developer portfolio showcasing AI/ML projects, skills
 
 ## ✨ Features
 
-- Smooth scroll navigation with active section highlighting
+- Smooth scroll navigation (About, Skills, Projects, Experience, Education, Contact) with active section highlighting
 - Scroll progress bar at the top
 - Typewriter role animation in Hero section
 - Animated skill bars triggered on scroll
@@ -40,9 +40,11 @@ src/
 │   ├── About.jsx        # About me with highlight cards
 │   ├── Skills.jsx       # Animated skill bars by category
 │   ├── Projects.jsx     # Filterable project cards + detail modals
+│   ├── Experience.jsx   # Work experience timeline
 │   ├── Education.jsx    # Education timeline & GPA display
 │   ├── Contact.jsx      # Contact links & message form
-│   └── Footer.jsx       # Footer with nav & social links
+│   ├── Footer.jsx       # Footer with nav & social links
+│   └── BrandIcons.jsx   # Custom SVG icons (GitHub, LinkedIn)
 ├── data/
 │   └── portfolio.js     # All content lives here (edit this file)
 ├── App.jsx

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Brain, Cpu, BarChart3, Cloud, ArrowDown, Check } from 'lucide-react';
+import { Brain, Cpu, Eye, Cloud, ArrowDown, Check } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 
 const fadeInUp = {
@@ -13,10 +13,10 @@ const stagger = {
 };
 
 const BUILD_CATEGORIES = [
-  { icon: Brain,    title: 'Agentic AI Systems',     desc: 'Multi-step LLM orchestration, LangGraph workflows, and autonomous execution pipelines.' },
-  { icon: Cpu,      title: 'Backend AI Platforms',    desc: 'FastAPI, Node.js, PostgreSQL — enterprise-grade APIs with structured AI decision memory.' },
-  { icon: BarChart3, title: 'Machine Learning Systems', desc: 'End-to-end model training, feature engineering, and predictive inference systems.' },
-  { icon: Cloud,    title: 'Production Deployments',  desc: 'Docker, Redis, cloud hosting — live systems serving real users with measurable impact.' },
+  { icon: Brain, title: 'Agentic AI Systems',       desc: 'Multi-step LLM orchestration, LangGraph workflows, and autonomous execution pipelines.' },
+  { icon: Eye,   title: 'Computer Vision Systems',  desc: 'Facial recognition, image processing pipelines, and real-time detection with CompreFace.' },
+  { icon: Cpu,   title: 'Backend AI Platforms',     desc: 'FastAPI, Node.js, Spring Boot — enterprise-grade APIs with structured AI decision memory.' },
+  { icon: Cloud, title: 'Cloud Infrastructure',     desc: 'Docker, GCP, PostgreSQL, Redis — scalable deployments serving production AI workloads.' },
 ];
 
 const WORKFLOW_STEPS = ['Problem', 'Architecture', 'Backend', 'AI Integration', 'Deployment'];
@@ -73,10 +73,10 @@ export default function About() {
           {/* Personal approach */}
           <motion.p variants={fadeInUp}
             className="text-text-secondary text-lg leading-relaxed max-w-3xl mb-6">
-            I enjoy taking ambiguous ideas and turning them into production software.
-            Whether it's an LLM-powered interview platform, an enterprise AI recovery
-            engine, or a facial recognition system — I build systems that are useful,
-            scalable, and deployed. Not just prototypes.
+            I enjoy designing production-grade AI platforms where backend engineering,
+            cloud infrastructure, and intelligent models work together. From facial
+            recognition systems to agentic payment recovery engines, I build software
+            that is scalable, maintainable, deployed to production — not just prototypes.
           </motion.p>
 
           {/* Identity paragraph */}

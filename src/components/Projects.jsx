@@ -14,16 +14,11 @@ const stagger = {
 };
 
 function ScreenshotPlaceholder({ src, alt, caption, color }) {
-  return (
-    <div className="relative rounded-xl overflow-hidden border border-border-subtle bg-bg-secondary/80 group">
-      {src ? (
-        <img
-          src={src}
-          alt={alt}
-          className="w-full aspect-video object-cover"
-          loading="lazy"
-        />
-      ) : (
+  const [imgError, setImgError] = useState(false);
+
+  if (!src || imgError) {
+    return (
+      <div className="relative rounded-xl overflow-hidden border border-border-subtle bg-bg-secondary/80 group">
         <div className="aspect-video flex flex-col items-center justify-center gap-2 px-4"
           style={{ background: `linear-gradient(135deg, ${color}06, ${color}02)` }}>
           <div className="w-8 h-8 rounded-lg border border-dashed border-border-subtle/50 flex items-center justify-center">
@@ -32,7 +27,24 @@ function ScreenshotPlaceholder({ src, alt, caption, color }) {
           <p className="text-[11px] font-mono text-text-muted/40 text-center">Deployment in Progress</p>
           <p className="text-[9px] font-mono text-text-muted/25 text-center max-w-[180px]">Screenshots will be added after production deployment.</p>
         </div>
-      )}
+        {caption && (
+          <div className="px-3 py-2 border-t border-border-subtle">
+            <p className="text-[10px] text-text-muted font-mono truncate">{caption}</p>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative rounded-xl overflow-hidden border border-border-subtle bg-bg-secondary/80 group">
+      <img
+        src={src}
+        alt={alt}
+        className="w-full aspect-video object-cover"
+        loading="lazy"
+        onError={() => setImgError(true)}
+      />
       {caption && (
         <div className="px-3 py-2 border-t border-border-subtle">
           <p className="text-[10px] text-text-muted font-mono truncate">{caption}</p>
@@ -92,7 +104,7 @@ function FeaturedCard({ project, onOpen }) {
             </div>
 
             {/* Tagline */}
-            <p className="font-mono text-sm text-accent-cyan/80">{project.tagline}</p>
+            <p className="font-mono text-sm text-accent-cyan/80 leading-relaxed">{project.tagline}</p>
 
             {/* Problem */}
             <div>
@@ -370,7 +382,7 @@ function CaseStudyModal({ project, onClose }) {
           </div>
 
           <div className="space-y-6">
-            <p className="font-mono text-sm text-accent-cyan">{project.tagline}</p>
+            <p className="font-mono text-sm text-accent-cyan leading-relaxed">{project.tagline}</p>
 
             {/* Problem */}
             <div>

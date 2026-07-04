@@ -22,8 +22,8 @@ function getLevelColor(level) {
 
 function SkillBar({ name, level }) {
   return (
-    <div className="flex items-center justify-between py-1.5">
-      <span className="text-sm font-body text-text-secondary">{name}</span>
+    <div className="flex items-center justify-between py-1.5 gap-2 min-w-0">
+      <span className="text-sm font-body text-text-secondary truncate">{name}</span>
       <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${getLevelColor(level)}`}>
         {level}
       </span>

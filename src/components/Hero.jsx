@@ -30,10 +30,10 @@ const STACK_ITEMS = [
 ];
 
 const HERO_STATS = [
-  { value: 2,  suffix: '',  label: 'Enterprise AI Platforms', meta: '2 Platforms' },
-  { value: 7,  suffix: '+', label: 'Production Systems'                        },
-  { value: 7,  suffix: '',  label: 'Docker Services',       meta: '7 Services' },
-  { value: 500, suffix: '+', label: 'Business Records'                         },
+  { value: 2,  suffix: '',  label: 'Enterprise AI Platforms' },
+  { value: 7,  suffix: '+', label: 'Production Systems'      },
+  { value: 7,  suffix: '',  label: 'Docker Services'          },
+  { value: 500, suffix: '+', label: 'Business Records'        },
 ];
 
 const TECH_LOGOS = [
@@ -129,7 +129,7 @@ function StackCard() {
   );
 }
 
-function AnimatedStat({ value, suffix, label, meta, index }) {
+function AnimatedStat({ value, suffix, label, index }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
   const [count, setCount] = useState(0);
@@ -151,7 +151,7 @@ function AnimatedStat({ value, suffix, label, meta, index }) {
     return () => clearInterval(timer);
   }, [inView, value]);
 
-  const displayValue = meta || (count + suffix);
+  const displayValue = count + suffix;
 
   return (
     <motion.div
@@ -159,13 +159,13 @@ function AnimatedStat({ value, suffix, label, meta, index }) {
       initial={{ opacity: 0, y: 12 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: 0.55 + index * 0.06, duration: 0.4 }}
-      className="bg-bg-card/50 border border-border-subtle rounded-xl p-4 text-center
-                 hover:border-border-active/50 transition-all"
+      className="bg-bg-card/50 border border-border-subtle rounded-2xl py-4 px-3 text-center
+                 hover:border-border-active/50 transition-all duration-300 flex flex-col items-center justify-center min-h-[90px]"
     >
-      <div className="font-display font-black text-2xl text-accent-cyan mb-0.5">
+      <div className="font-display font-black text-2xl text-accent-cyan mb-2 leading-none">
         {displayValue}
       </div>
-      <div className="text-[10px] text-text-muted font-mono uppercase tracking-wider">
+      <div className="text-[10px] text-text-muted font-mono uppercase tracking-wider leading-tight">
         {label}
       </div>
     </motion.div>
@@ -288,8 +288,8 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.15 }}
               className="mb-8"
             >
-              <h1 className="font-display font-black text-[2rem] sm:text-[2.75rem] md:text-[3.5rem]
-                             lg:text-[3.75rem] xl:text-[4rem] leading-[1.05] tracking-tight text-text-primary">
+              <h1 className="font-display font-black leading-[1.05] tracking-tight text-text-primary"
+                  style={{ fontSize: 'clamp(1.75rem, 5.5vw, 4rem)' }}>
                 BUILDING
                 <br />
                 PRODUCTION

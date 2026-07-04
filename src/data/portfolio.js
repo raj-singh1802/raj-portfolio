@@ -78,7 +78,7 @@ export const skills = [
   },
 ];
 
-export const CATEGORIES = ['All', 'LLMs', 'Agentic AI', 'Computer Vision', 'Machine Learning', 'Backend'];
+export const CATEGORIES = ['All', 'LLMs', 'Agentic AI', 'Computer Vision', 'Machine Learning', 'Backend', 'Voice AI', 'Cloud'];
 
 export const architectures = [
   {
@@ -146,7 +146,7 @@ export const projects = [
       { challenge: "PDF report generation",        solution: "Automated ReportLab pipeline generating structured interview PDFs with scores and transcripts" },
     ],
     businessImpact: "Reduces manual interview time by 80% while ensuring consistent, unbiased candidate evaluation at scale. Deployed end-to-end in 5 days.",
-    categories: ["LLMs"],
+    categories: ["LLMs", "Voice AI", "Machine Learning"],
     featured: false,
     tech: ["FastAPI", "Streamlit", "LLM", "NLP", "Python"],
     techStack: ["FastAPI", "Streamlit", "Groq API", "LLaMA-3.3-70b", "Whisper-v3", "gTTS", "ReportLab", "Plotly"],
@@ -186,7 +186,7 @@ export const projects = [
       { challenge: "Face registration at scale",       solution: "Auto-detection, face-cropping, and subject registration pipeline for event-scale uploads" },
     ],
     businessImpact: "Eliminates manual photo sorting at events — guests find their photos in seconds instead of browsing hundreds of images. Photographers deliver a premium experience.",
-    categories: ["Computer Vision", "Backend"],
+    categories: ["Computer Vision", "Backend", "Cloud"],
     featured: true,
     tech: ["Docker", "Node.js"],
     techStack: ["Next.js 16", "Spring Boot 3.4", "CompreFace", "PostgreSQL", "Redis", "Docker", "JWT", "Zustand", "Java"],
@@ -224,7 +224,7 @@ export const projects = [
       { challenge: "Broken commitment detection",    solution: "Automated re-engagement pipeline with Twilio SMS and priority-based scheduling" },
     ],
     businessImpact: "Automates payment recovery for 500+ invoices with personalized AI strategies, reducing manual follow-up effort and improving recovery rates through intelligent prioritization.",
-    categories: ["Agentic AI", "Backend"],
+    categories: ["Agentic AI", "Backend", "LLMs"],
     featured: true,
     tech: ["Node.js", "LLM", "Agentic AI", "PostgreSQL"],
     techStack: ["Node.js", "Express.js", "PostgreSQL", "Prisma ORM", "Groq API", "LLaMA-3.3-70B", "Redis", "Twilio", "Socket.IO"],
@@ -337,7 +337,7 @@ export const projects = [
       { challenge: "Zero-API fallback",           solution: "Graceful degradation to rule-based responses when LLM APIs are unavailable — no dependency" },
     ],
     businessImpact: "Automates lead qualification for a SaaS product with 18/18 test coverage, operating reliably even without LLM API access — ensuring 24/7 customer engagement.",
-    categories: ["Agentic AI"],
+    categories: ["Agentic AI", "LLMs", "Backend"],
     featured: false,
     tech: ["Python", "LangGraph", "LLM", "FAISS", "FastAPI"],
     techStack: ["Python", "LangGraph", "LangChain", "FastAPI", "FAISS", "Sentence-Transformers", "OpenAI API", "REST APIs", "WhatsApp Cloud API"],

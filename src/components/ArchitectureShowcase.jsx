@@ -96,7 +96,7 @@ function ArchitectureDiagram({ arch, index }) {
                 </span>
                 <div className="h-px flex-1 bg-border-subtle/30" />
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 items-stretch">
                 {arch.nodes.filter(n => n.layer === layer).map((node) => (
                   <NodeCard
                     key={node.id}

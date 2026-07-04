@@ -15,7 +15,7 @@ const stagger = {
 const BUILD_CATEGORIES = [
   { icon: Brain,    title: 'Agentic AI Systems',     desc: 'Multi-step LLM orchestration, LangGraph workflows, and autonomous execution pipelines.' },
   { icon: Cpu,      title: 'Backend AI Platforms',    desc: 'FastAPI, Node.js, PostgreSQL — enterprise-grade APIs with structured AI decision memory.' },
-  { icon: BarChart3, title: 'ML Pipelines',           desc: 'End-to-end model training, feature engineering, and predictive inference systems.' },
+  { icon: BarChart3, title: 'Machine Learning Systems', desc: 'End-to-end model training, feature engineering, and predictive inference systems.' },
   { icon: Cloud,    title: 'Production Deployments',  desc: 'Docker, Redis, cloud hosting — live systems serving real users with measurable impact.' },
 ];
 
@@ -70,11 +70,20 @@ export default function About() {
             <span className="block text-accent-cyan">that automate real workflows.</span>
           </motion.h2>
 
+          {/* Personal approach */}
+          <motion.p variants={fadeInUp}
+            className="text-text-secondary text-lg leading-relaxed max-w-3xl mb-6">
+            I enjoy taking ambiguous ideas and turning them into production software.
+            Whether it's an LLM-powered interview platform, an enterprise AI recovery
+            engine, or a facial recognition system — I build systems that are useful,
+            scalable, and deployed. Not just prototypes.
+          </motion.p>
+
           {/* Identity paragraph */}
           <motion.p variants={fadeInUp}
-            className="text-text-secondary text-lg leading-relaxed max-w-3xl mb-16">
+            className="text-text-secondary leading-relaxed max-w-3xl mb-16">
             I design and deploy intelligent systems — from LLM-powered interview automation
-            and enterprise payment recovery platforms to machine learning pipelines and
+            and enterprise payment recovery platforms to machine learning systems and
             agentic AI workflows. Every project I build is deployed, functional, and
             solving a real business problem.
           </motion.p>
@@ -191,14 +200,11 @@ export default function About() {
             className="text-center p-8 rounded-2xl bg-accent-cyan/5 border border-accent-cyan/10
                        max-w-2xl mx-auto">
             <p className="text-text-secondary text-sm leading-relaxed">
-              Currently building{' '}
-              <span className="text-accent-cyan font-medium">agentic AI systems</span> at Hamath OPC
-              and shipping production platforms like{' '}
-              <span className="text-accent-cyan font-medium">RevenueGuard AI</span> and{' '}
-              <span className="text-accent-cyan font-medium">EventLens AI</span>.
-              {personalInfo.graduation && (
-                <> Available for full-time AI Engineer roles from {personalInfo.graduation}.</>
-              )}
+              Currently building enterprise AI products during my{' '}
+              <span className="text-accent-cyan font-medium">AI Engineering internship</span> at Hamath OPC
+              while actively pursuing full-time{' '}
+              <span className="text-accent-cyan font-medium">AI Engineer</span> and{' '}
+              <span className="text-accent-cyan font-medium">Machine Learning Engineer</span> roles.
             </p>
           </motion.div>
 

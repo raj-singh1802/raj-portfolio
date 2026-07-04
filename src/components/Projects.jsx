@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { ExternalLink, BookOpen, Zap, ChevronRight } from 'lucide-react';
+import { ExternalLink, BookOpen, ArrowRight, Zap, Bug, Layers, Target } from 'lucide-react';
 import { Github } from './BrandIcons';
 import { projects } from '../data/portfolio';
 
@@ -15,7 +15,7 @@ const stagger = {
 
 const ALL_FILTERS = ['All', 'Python', 'FastAPI', 'LLM', 'Agentic AI', 'ML', 'NLP', 'FAISS', 'LangGraph', 'Node.js', 'Docker'];
 
-function ProjectCard({ project, index, onClick }) {
+function CaseCard({ project, index, onClick }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
@@ -39,7 +39,7 @@ function ProjectCard({ project, index, onClick }) {
         style={{ background: `linear-gradient(90deg, ${project.color}, transparent)` }}
       />
 
-      {/* Header row */}
+      {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
           <div
@@ -60,23 +60,41 @@ function ProjectCard({ project, index, onClick }) {
             </span>
           </div>
         </div>
-
-        <ChevronRight
-          size={16}
+        <ArrowRight size={16}
           className="text-text-muted group-hover:text-accent-cyan
-                     group-hover:translate-x-1 transition-all mt-1"
-        />
+                     group-hover:translate-x-1 transition-all mt-1" />
       </div>
 
-      {/* Tagline */}
-      <p className="text-xs font-mono text-accent-cyan/70 mb-2 leading-relaxed">
-        {project.tagline}
-      </p>
+      {/* Problem */}
+      <div className="mb-3">
+        <div className="flex items-center gap-1.5 mb-1">
+          <Bug size={11} className="text-accent-cyan/60" />
+          <span className="text-[10px] font-mono text-accent-cyan/60 uppercase tracking-wider">Problem</span>
+        </div>
+        <p className="text-sm text-text-secondary leading-relaxed line-clamp-2">
+          {project.problem}
+        </p>
+      </div>
 
-      {/* Short description */}
-      <p className="text-sm text-text-secondary leading-relaxed mb-4">
-        {project.shortDesc}
-      </p>
+      {/* Architecture flow */}
+      <div className="mb-4">
+        <div className="flex items-center gap-1.5 mb-2">
+          <Layers size={11} className="text-accent-cyan/60" />
+          <span className="text-[10px] font-mono text-accent-cyan/60 uppercase tracking-wider">Architecture</span>
+        </div>
+        <div className="flex flex-wrap items-center gap-1 text-[10px] font-mono">
+          {project.architecture.split('→').map((part, i) => (
+            <span key={i} className="flex items-center gap-1">
+              <span className="px-1.5 py-0.5 rounded bg-bg-secondary/50 border border-border-subtle text-text-muted">
+                {part.trim()}
+              </span>
+              {i < project.architecture.split('→').length - 1 && (
+                <ArrowRight size={10} className="text-accent-cyan/30 flex-shrink-0" />
+              )}
+            </span>
+          ))}
+        </div>
+      </div>
 
       {/* Metrics row */}
       <div className="grid grid-cols-2 gap-2 mb-4">
@@ -103,42 +121,27 @@ function ProjectCard({ project, index, onClick }) {
       {/* Links */}
       <div className="flex items-center gap-3 pt-3 border-t border-border-subtle">
         {project.links.live && (
-          <a
-            href={project.links.live}
-            target="_blank"
-            rel="noopener noreferrer"
+          <a href={project.links.live} target="_blank" rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
             className="flex items-center gap-1.5 text-xs text-text-secondary
-                       hover:text-accent-cyan transition-colors"
-          >
-            <ExternalLink size={12} />
-            Live Demo
+                       hover:text-accent-cyan transition-colors">
+            <ExternalLink size={12} /> Live Demo
           </a>
         )}
         {project.links.api && (
-          <a
-            href={project.links.api}
-            target="_blank"
-            rel="noopener noreferrer"
+          <a href={project.links.api} target="_blank" rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
             className="flex items-center gap-1.5 text-xs text-text-secondary
-                       hover:text-accent-cyan transition-colors"
-          >
-            <Zap size={12} />
-            API Docs
+                       hover:text-accent-cyan transition-colors">
+            <BookOpen size={12} /> API Docs
           </a>
         )}
         {project.links.github && (
-          <a
-            href={project.links.github}
-            target="_blank"
-            rel="noopener noreferrer"
+          <a href={project.links.github} target="_blank" rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
             className="flex items-center gap-1.5 text-xs text-text-secondary
-                       hover:text-accent-cyan transition-colors ml-auto"
-          >
-            <Github size={12} />
-            GitHub
+                       hover:text-accent-cyan transition-colors ml-auto">
+            <Github size={12} /> GitHub
           </a>
         )}
       </div>
@@ -146,7 +149,7 @@ function ProjectCard({ project, index, onClick }) {
   );
 }
 
-function ProjectModal({ project, onClose }) {
+function CaseStudyModal({ project, onClose }) {
   if (!project) return null;
 
   const statusColor = project.status === 'Live'
@@ -169,22 +172,17 @@ function ProjectModal({ project, onClose }) {
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         onClick={(e) => e.stopPropagation()}
         className="bg-bg-card border border-border-active rounded-2xl
-                   w-full max-w-2xl max-h-[85vh] overflow-y-auto"
+                   w-full max-w-3xl max-h-[85vh] overflow-y-auto"
       >
-        {/* Modal top border */}
-        <div
-          className="h-[3px] rounded-t-2xl"
-          style={{ background: `linear-gradient(90deg, ${project.color}, transparent)` }}
-        />
+        <div className="h-[3px] rounded-t-2xl"
+          style={{ background: `linear-gradient(90deg, ${project.color}, transparent)` }} />
 
         <div className="p-8">
           {/* Header */}
-          <div className="flex items-start justify-between mb-6">
+          <div className="flex items-start justify-between mb-8">
             <div className="flex items-center gap-4">
-              <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl border border-white/5"
-                style={{ background: `${project.color}15` }}
-              >
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl border border-white/5"
+                style={{ background: `${project.color}15` }}>
                 {project.icon}
               </div>
               <div>
@@ -198,79 +196,128 @@ function ProjectModal({ project, onClose }) {
                 </span>
               </div>
             </div>
-            <button
-              onClick={onClose}
+            <button onClick={onClose}
               className="text-text-muted hover:text-text-primary transition-colors
                          w-8 h-8 flex items-center justify-center rounded-lg
-                         hover:bg-bg-hover text-xl leading-none"
-            >
-              ✕
-            </button>
+                         hover:bg-bg-hover text-xl leading-none">✕</button>
           </div>
 
-          {/* Tagline */}
-          <p className="font-mono text-sm text-accent-cyan mb-4">{project.tagline}</p>
+          <div className="space-y-6">
 
-          {/* Description */}
-          <p className="text-text-secondary leading-relaxed mb-6">{project.description}</p>
+            {/* Tagline */}
+            <p className="font-mono text-sm text-accent-cyan">{project.tagline}</p>
 
-          {/* Metrics */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-            {project.metrics.map((m, i) => (
-              <div key={i} className="bg-bg-secondary rounded-xl p-3 border border-border-subtle text-center">
-                <div className="font-mono font-bold text-base" style={{ color: project.color }}>
-                  {m.value}
+            {/* Problem */}
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <Bug size={14} className="text-accent-cyan" />
+                <span className="text-xs font-mono text-accent-cyan uppercase tracking-wider">The Problem</span>
+              </div>
+              <p className="text-text-secondary leading-relaxed">{project.problem}</p>
+            </div>
+
+            {/* Architecture */}
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <Layers size={14} className="text-accent-cyan" />
+                <span className="text-xs font-mono text-accent-cyan uppercase tracking-wider">Architecture</span>
+              </div>
+              <div className="flex flex-wrap items-center gap-1.5 text-xs font-mono">
+                {project.architecture.split('→').map((part, i) => (
+                  <span key={i} className="flex items-center gap-1.5">
+                    <span className="px-2.5 py-1.5 rounded-lg bg-bg-secondary border border-border-subtle text-text-secondary">
+                      {part.trim()}
+                    </span>
+                    {i < project.architecture.split('→').length - 1 && (
+                      <ArrowRight size={12} className="text-accent-cyan/40 flex-shrink-0" />
+                    )}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Technical Challenges */}
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <Target size={14} className="text-accent-cyan" />
+                <span className="text-xs font-mono text-accent-cyan uppercase tracking-wider">Technical Challenges</span>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-2">
+                {project.challenges.map((c, i) => (
+                  <div key={i} className="flex items-start gap-2 p-3 rounded-xl bg-bg-secondary/50 border border-border-subtle">
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent-cyan/60 mt-1.5 flex-shrink-0" />
+                    <span className="text-sm text-text-secondary">{c}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Description */}
+            <div>
+              <span className="text-xs font-mono text-text-muted uppercase tracking-wider mb-2 block">Overview</span>
+              <p className="text-text-secondary leading-relaxed">{project.description}</p>
+            </div>
+
+            {/* Metrics */}
+            <div>
+              <span className="text-xs font-mono text-text-muted uppercase tracking-wider mb-3 block">Metrics</span>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {project.metrics.map((m, i) => (
+                  <div key={i} className="bg-bg-secondary rounded-xl p-3 border border-border-subtle text-center">
+                    <div className="font-mono font-bold text-base" style={{ color: project.color }}>
+                      {m.value}
+                    </div>
+                    <div className="text-[11px] text-text-muted mt-1">{m.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Key Achievement */}
+            <div className="bg-accent-cyan/5 border border-accent-cyan/20 rounded-xl p-4">
+              <div className="flex items-start gap-2">
+                <Zap size={14} className="text-accent-cyan mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-xs font-mono text-accent-cyan mb-1 uppercase tracking-wider">
+                    Key Achievement
+                  </p>
+                  <p className="text-sm text-text-secondary">{project.achievement}</p>
                 </div>
-                <div className="text-[11px] text-text-muted mt-1">{m.label}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Achievement */}
-          <div className="bg-accent-cyan/5 border border-accent-cyan/20 rounded-xl p-4 mb-6">
-            <div className="flex items-start gap-2">
-              <Zap size={14} className="text-accent-cyan mt-0.5 flex-shrink-0" />
-              <div>
-                <p className="text-xs font-mono text-accent-cyan mb-1 uppercase tracking-wider">
-                  Key Achievement
-                </p>
-                <p className="text-sm text-text-secondary">{project.achievement}</p>
               </div>
             </div>
-          </div>
 
-          {/* Full tech stack */}
-          <div className="mb-6">
-            <p className="text-xs font-mono text-text-muted uppercase tracking-widest mb-3">
-              Tech Stack
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {project.techStack.map((t) => (
-                <span key={t} className="tag-cyan text-xs">{t}</span>
-              ))}
+            {/* Tech Stack */}
+            <div>
+              <span className="text-xs font-mono text-text-muted uppercase tracking-wider mb-3 block">Tech Stack</span>
+              <div className="flex flex-wrap gap-2">
+                {project.techStack.map((t) => (
+                  <span key={t} className="tag-cyan text-xs">{t}</span>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Links */}
-          <div className="flex flex-wrap gap-3 pt-4 border-t border-border-subtle">
-            {project.links.live && (
-              <a href={project.links.live} target="_blank" rel="noopener noreferrer"
-                className="btn-primary text-xs py-2">
-                <ExternalLink size={13} /> Live Demo
-              </a>
-            )}
-            {project.links.api && (
-              <a href={project.links.api} target="_blank" rel="noopener noreferrer"
-                className="btn-secondary text-xs py-2">
-                <BookOpen size={13} /> API Docs
-              </a>
-            )}
-            {project.links.github && (
-              <a href={project.links.github} target="_blank" rel="noopener noreferrer"
-                className="btn-secondary text-xs py-2">
-                <Github size={13} /> GitHub
-              </a>
-            )}
+            {/* Links */}
+            <div className="flex flex-wrap gap-3 pt-4 border-t border-border-subtle">
+              {project.links.live && (
+                <a href={project.links.live} target="_blank" rel="noopener noreferrer"
+                  className="btn-primary text-xs py-2">
+                  <ExternalLink size={13} /> Live Demo
+                </a>
+              )}
+              {project.links.api && (
+                <a href={project.links.api} target="_blank" rel="noopener noreferrer"
+                  className="btn-secondary text-xs py-2">
+                  <BookOpen size={13} /> API Docs
+                </a>
+              )}
+              {project.links.github && (
+                <a href={project.links.github} target="_blank" rel="noopener noreferrer"
+                  className="btn-secondary text-xs py-2">
+                  <Github size={13} /> GitHub
+                </a>
+              )}
+            </div>
+
           </div>
         </div>
       </motion.div>
@@ -307,20 +354,19 @@ export default function Projects() {
           >
             <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-4">
               <span className="text-xs font-mono text-accent-cyan tracking-widest uppercase">
-                03 / Projects
+                03 / Case Studies
               </span>
               <div className="h-px flex-1 max-w-xs
                               bg-gradient-to-r from-accent-cyan/30 to-transparent" />
             </motion.div>
 
             <motion.h2 variants={fadeInUp} className="section-title">
-              Things I've
-              <span className="text-accent-cyan"> Built & Shipped</span>
+              Production AI
+              <span className="text-accent-cyan"> Engineering</span>
             </motion.h2>
 
             <motion.p variants={fadeInUp} className="mt-4 text-text-secondary max-w-xl">
-              Production-ready AI systems with real deployments, real metrics, and real impact.
-              Click any card to see full details.
+              Real systems with real architecture decisions. Click any project for a full case study.
             </motion.p>
           </motion.div>
 
@@ -333,15 +379,13 @@ export default function Projects() {
             className="flex flex-wrap gap-2 mb-10"
           >
             {ALL_FILTERS.map((filter) => (
-              <button
-                key={filter}
+              <button key={filter}
                 onClick={() => setActiveFilter(filter)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all duration-200
                   ${activeFilter === filter
                     ? 'bg-accent-cyan text-bg-primary font-bold'
                     : 'tag hover:border-border-active hover:text-text-primary'
-                  }`}
-              >
+                  }`}>
                 {filter}
               </button>
             ))}
@@ -358,7 +402,7 @@ export default function Projects() {
               className="grid sm:grid-cols-2 xl:grid-cols-2 gap-5"
             >
               {filtered.map((project, i) => (
-                <ProjectCard
+                <CaseCard
                   key={project.id}
                   project={project}
                   index={i}
@@ -377,10 +421,10 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Project Modal */}
+      {/* Case Study Modal */}
       <AnimatePresence>
         {selectedProject && (
-          <ProjectModal
+          <CaseStudyModal
             project={selectedProject}
             onClose={() => setSelectedProject(null)}
           />

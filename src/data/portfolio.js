@@ -15,7 +15,7 @@ export const personalInfo = {
   university: "KIIT University",
   degree: "B.Tech Computer Science",
   gpa: "8.23 / 10",
-  graduation: "May 2026",
+  graduation: "Graduated May 2026",
 };
 
 export const stats = [
@@ -78,6 +78,14 @@ export const projects = [
     tagline: "End-to-end AI voice interview system — concept to deployment in 5 days",
     shortDesc: "Production-ready voice-based interview platform that screens tutor candidates automatically with adaptive AI questioning.",
     description: "Built a production-ready voice-based interview platform that screens tutor candidates automatically. Features real-time speech-to-text (Groq Whisper), adaptive AI questioning (LLaMA-3.1), and structured evaluation across 5 pedagogical dimensions with evidence-based scoring.",
+    problem: "Tutor recruitment agencies screen hundreds of candidates manually — scheduling calls, taking notes, and evaluating communication skills inconsistently. The process is slow, subjective, and doesn't scale.",
+    architecture: "Browser → FastAPI backend → Groq Whisper (STT) → LLaMA-3.3-70b (LLM) → gTTS (TTS) → ReportLab (PDF)",
+    challenges: [
+      "Real-time speech-to-text with <2s latency using Groq Whisper",
+      "Adaptive question generation based on previous answers",
+      "Multi-dimensional scoring across 5 pedagogical dimensions",
+      "End-to-end voice UX with TTS and PDF report generation",
+    ],
     tech: ["FastAPI", "Streamlit", "LLM", "NLP", "Python"],
     techStack: ["FastAPI", "Streamlit", "Groq API", "LLaMA-3.3-70b", "Whisper-v3", "gTTS", "ReportLab", "Plotly"],
     metrics: [
@@ -102,6 +110,14 @@ export const projects = [
     tagline: "VC-style startup evaluation powered by LLMs and vector similarity search",
     shortDesc: "End-to-end AI platform simulating venture capital decision-making with LLM scoring and FAISS-powered search.",
     description: "End-to-end AI platform that simulates venture capital decision-making. Analyzes startup ideas through multi-stage pipeline: industry classification, market potential estimation, AI-driven scoring (0–10), funding probability prediction (0–100%), and FAISS-powered similarity search across 500+ startup database.",
+    problem: "Startup founders need rapid, unbiased feedback on their ideas, but traditional VC evaluation is slow, expensive, and inaccessible to early-stage founders without connections.",
+    architecture: "Browser → Streamlit → Groq API (LLM) → Sentence Transformers → FAISS index → 500+ startup DB → Plotly dashboard",
+    challenges: [
+      "Multi-stage pipeline with 5 distinct reasoning steps",
+      "Integrating LLM scoring with vector similarity search",
+      "Building a 500+ startup vector database from scratch",
+      "Maintaining consistent scoring across diverse industries",
+    ],
     tech: ["Python", "Streamlit", "LLM", "FAISS", "NLP"],
     techStack: ["Python", "Streamlit", "Groq API", "Sentence Transformers", "FAISS", "Plotly", "Pandas"],
     metrics: [
@@ -125,6 +141,14 @@ export const projects = [
     tagline: "Production ML system predicting aircraft engine failure with time-series analysis",
     shortDesc: "Full-stack predictive maintenance system benchmarking 5 ML algorithms on NASA CMAPSS dataset — Random Forest achieved R² of 0.87, outperforming baseline by 34%.",
     description: "Full-stack predictive maintenance system estimating Remaining Useful Life (RUL) of aircraft engines using multivariate sensor data. Engineered time-series features (rolling stats, temporal deltas), deployed Random Forest models for RUL prediction and failure risk classification.",
+    problem: "Airlines lose millions to unexpected engine failures. Predicting Remaining Useful Life (RUL) from sensor data is critical for proactive maintenance, but requires bridging ML experimentation with a production-ready system.",
+    architecture: "NASA CMAPSS data → Feature engineering → Grid Search (5 models) → Random Forest → FastAPI → Streamlit → Render",
+    challenges: [
+      "Feature consistency between training and inference pipelines",
+      "Benchmarking 5 algorithms with cross-validated Grid Search",
+      "Time-series feature engineering (rolling stats, temporal deltas)",
+      "Deploying ML model behind a FastAPI endpoint with Joblib serialization",
+    ],
     tech: ["Python", "ML", "FastAPI", "Streamlit"],
     techStack: ["Python", "Scikit-learn", "FastAPI", "Streamlit", "Joblib", "Pandas", "NumPy", "Render"],
     metrics: [
@@ -149,6 +173,14 @@ export const projects = [
     tagline: "LangGraph agentic workflow converting conversations into qualified leads — built as ML internship assignment",
     shortDesc: "Production-grade conversational AI agent with intent classification, RAG pipeline, and multi-turn lead capture for a SaaS product. Fully functional with or without LLM API.",
     description: "Developed an end-to-end agentic workflow for AutoStream (AI video editing SaaS) using LangGraph and FastAPI. The agent routes conversations via a 5-class intent classifier, retrieves accurate answers from a local FAISS knowledge base, and captures qualified leads through a stateful multi-turn workflow. Features graceful degradation — runs fully on rule-based fallback without any LLM API. WhatsApp webhook integration via Meta Cloud API with session tracking by phone number.",
+    problem: "AutoStream needed an automated lead qualification system that could handle customer conversations, answer product questions, and capture interested leads — without requiring constant human supervision.",
+    architecture: "WhatsApp → Webhook → FastAPI → LangGraph (5-class intent) → FAISS RAG → Stateful lead capture → Response",
+    challenges: [
+      "Designing a 5-class intent classifier with conditional LangGraph routing",
+      "Building a FAISS knowledge base from product documentation",
+      "Stateful multi-turn lead capture across WhatsApp sessions",
+      "Graceful fallback mode operating with zero LLM API dependency",
+    ],
     tech: ["Python", "LangGraph", "LLM", "FAISS", "FastAPI"],
     techStack: ["Python", "LangGraph", "LangChain", "FastAPI", "FAISS", "Sentence-Transformers", "OpenAI API", "REST APIs", "WhatsApp Cloud API"],
     metrics: [
@@ -171,6 +203,14 @@ export const projects = [
     tagline: "Enterprise Agentic AI payment recovery platform with LLM orchestration and rule-based workflow engine",
     shortDesc: "Production-grade AI debt recovery system combining rule-based risk scoring, Groq LLM strategy generation, and autonomous commitment tracking across 500+ customer invoices.",
     description: "Architected an enterprise Agentic AI payment recovery platform using Node.js/Express and PostgreSQL/Prisma. Built 8-service modular backend with Risk Scoring Engine, Priority Engine, Broken Commitment Detection, and AI Recommendation Engine. Integrated Groq LLM (Llama 3.3-70B) for personalized recovery strategy generation — combining deterministic business rules with LLM reasoning. Stored all AI decisions in structured PostgreSQL memory enabling traceable, auditable recovery history per customer. Designing LangGraph-based autonomous multi-agent architecture for future orchestration.",
+    problem: "Businesses with 500+ outstanding invoices struggle with manual payment recovery — inconsistent follow-ups, no prioritization, and no audit trail for recovery actions taken.",
+    architecture: "Node.js/Express → PostgreSQL/Prisma → 8 microservices (Risk, Priority, Detection, AI, Notification, etc.) → Groq LLM → Redis → Twilio",
+    challenges: [
+      "Designing 8 microservice architecture with Prisma ORM",
+      "Combining deterministic rule engine with Groq LLM reasoning",
+      "Building audit trail for all AI decisions in PostgreSQL",
+      "Broken commitment detection with automated re-engagement",
+    ],
     tech: ["Node.js", "LLM", "Agentic AI", "PostgreSQL"],
     techStack: ["Node.js", "Express.js", "PostgreSQL", "Prisma ORM", "Groq API", "LLaMA-3.3-70B", "Redis", "Twilio", "Socket.IO"],
     metrics: [
@@ -193,6 +233,14 @@ export const projects = [
     tagline: "AI-powered event photography platform matching guests to their photos via facial recognition",
     shortDesc: "Full-stack platform where photographers upload event photos and guests instantly find all their pictures using a selfie — powered by CompreFace facial recognition.",
     description: "Built a full-stack AI event photography platform using Next.js 16 and Spring Boot 3.4 with CompreFace facial recognition. Photographers upload photos which are auto-detected, face-cropped, and registered against subject profiles. Guests take a selfie to instantly retrieve all photos they appear in. Features hybrid fallback mode (direct CompreFace calls when backend unreachable), JWT authentication, Redis caching, and full Docker orchestration across 7 services. Solved Snapchat/HEIC metadata rejection via dual re-encoding pipeline — both frontend (canvas) and backend (ImageIO) re-encode to JPEG 0.95 on white background.",
+    problem: "Event photographers take thousands of photos, but guests struggle to find pictures of themselves. Manual sorting doesn't scale, and existing facial recognition tools aren't designed for event workflows.",
+    architecture: "Next.js 16 → Spring Boot 3.4 → CompreFace API → PostgreSQL → Redis → Docker (7 services) → JWT Auth",
+    challenges: [
+      "Dual re-encoding pipeline for Snapchat/HEIC metadata rejection",
+      "Hybrid fallback architecture (direct CompreFace when backend is down)",
+      "Orchestrating 7 Docker services with JWT + Redis auth",
+      "Face cropping and registration pipeline at event scale",
+    ],
     tech: ["Docker", "Node.js"],
     techStack: ["Next.js 16", "Spring Boot 3.4", "CompreFace", "PostgreSQL", "Redis", "Docker", "JWT", "Zustand", "Java"],
     metrics: [

@@ -49,7 +49,7 @@ export default function Footer() {
               </div>
               <p className="text-sm text-text-muted leading-relaxed max-w-xs">
                 Building end-to-end AI systems that ship to production.
-                Open to new opportunities from May 2026.
+                Open to AI Engineer and ML Engineer opportunities.
               </p>
             </div>
 

@@ -288,8 +288,8 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.15 }}
               className="mb-8"
             >
-              <h1 className="font-display font-black leading-[1.05] tracking-tight text-text-primary"
-                  style={{ fontSize: 'clamp(1.75rem, 5.5vw, 4rem)' }}>
+              <h1 className="font-display font-black leading-[0.95] tracking-tight text-text-primary max-w-[650px]"
+                  style={{ fontSize: 'clamp(3.5rem, 7vw, 7rem)' }}>
                 BUILDING
                 <br />
                 PRODUCTION

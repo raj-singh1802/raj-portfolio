@@ -32,28 +32,30 @@ function FlowArrow() {
 
 function NodeCard({ node, active, onToggle, color }) {
   return (
-    <motion.button
-      onClick={() => onToggle(node.id)}
-      className={`relative w-full rounded-xl border transition-all text-left overflow-hidden
-        ${active
-          ? 'border-accent-cyan/40 bg-accent-cyan/[0.06] shadow-lg shadow-accent-cyan/5'
-          : 'border-border-subtle bg-bg-secondary/50 hover:border-border-active hover:bg-bg-secondary/80'
-        }`}
-      whileHover={{ y: -2 }}
-      whileTap={{ scale: 0.98 }}
-    >
-      <div className="p-3">
-        <div className="flex items-center gap-2 mb-1">
-          <span className="text-sm">{NODE_ICONS[node.id] || '🔧'}</span>
-          <span className="text-xs font-mono font-medium text-text-primary truncate">
-            {node.label}
-          </span>
+      <motion.button
+        onClick={() => onToggle(node.id)}
+        className={`relative w-full rounded-xl border transition-all text-left overflow-hidden cursor-pointer
+          ${active
+            ? 'border-accent-cyan/40 bg-accent-cyan/[0.06] shadow-lg shadow-accent-cyan/5'
+            : 'border-border-subtle bg-bg-secondary/50 hover:border-border-active hover:bg-bg-secondary/80'
+          }`}
+        whileHover={{ y: -2 }}
+        whileTap={{ scale: 0.98 }}
+        aria-expanded={active}
+        aria-label={`Toggle ${node.label} details`}
+      >
+        <div className="p-3">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-sm">{NODE_ICONS[node.id] || '🔧'}</span>
+            <span className="text-xs font-mono font-medium text-text-primary truncate">
+              {node.label}
+            </span>
+          </div>
         </div>
-      </div>
-      {active && (
-        <div className="h-0.5" style={{ background: `linear-gradient(90deg, ${color}, transparent)` }} />
-      )}
-    </motion.button>
+        {active && (
+          <div className="h-0.5" style={{ background: `linear-gradient(90deg, ${color}, transparent)` }} />
+        )}
+      </motion.button>
   );
 }
 
@@ -118,15 +120,15 @@ function ArchitectureDiagram({ arch, index }) {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2, ease: 'easeInOut' }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="overflow-hidden mt-4"
             >
-              <div className="p-4 rounded-xl bg-bg-secondary/40 border border-border-subtle/60">
+              <div className="p-5 rounded-xl bg-bg-secondary/40 border border-border-subtle/60">
                 <div className="flex items-start gap-3">
                   <span className="text-lg flex-shrink-0 mt-0.5">
                     {NODE_ICONS[activeNode] || '🔧'}
                   </span>
-                  <div>
+                  <div className="min-w-0">
                     <span className="text-sm font-medium text-text-primary block mb-1">
                       {arch.nodes.find(n => n.id === activeNode)?.label}
                     </span>

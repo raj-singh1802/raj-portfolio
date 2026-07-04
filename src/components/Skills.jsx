@@ -41,7 +41,7 @@ function SkillCard({ category, icon, items, index }) {
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="card-base card-hover p-6 group"
+      className="card-base card-hover p-6 group flex flex-col"
     >
       {/* Header */}
       <div className="flex items-center gap-3 mb-5">
@@ -56,7 +56,7 @@ function SkillCard({ category, icon, items, index }) {
       </div>
 
       {/* Skill bars */}
-      <div className="space-y-3">
+      <div className="space-y-3 flex-1">
         {items.map((skill, i) => (
           <SkillBar key={skill.name} {...skill} index={i} />
         ))}

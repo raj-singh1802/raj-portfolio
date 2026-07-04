@@ -10,7 +10,7 @@ const products = [
     status: 'Production MVP',
     statusColor: '#00d4d4',
     description: 'Enterprise event photography platform with facial recognition, selfie search, and personalized gallery generation.',
-    roadmap: ['Multi-Agent Orchestration', 'Voice AI', 'WhatsApp Automation'],
+    capabilities: ['Face Recognition', 'Selfie Search', 'Personalized Gallery', 'Cloud Storage', 'Docker Deployment'],
   },
   {
     icon: '🛡️',
@@ -20,7 +20,7 @@ const products = [
     status: 'Production Ready',
     statusColor: '#10b981',
     description: 'Enterprise Agentic AI payment recovery platform combining rule engines with LLM reasoning across 500+ invoices.',
-    roadmap: ['Supervisor Agent', 'LangGraph Orchestration', 'Voice Calling', 'Email Automation'],
+    capabilities: ['Risk Engine', 'Priority Engine', 'Recommendation Engine', 'PostgreSQL Memory', 'REST APIs'],
   },
 ];
 
@@ -96,17 +96,17 @@ export default function FlagshipProducts() {
                   </span>
                 </div>
 
-                {/* Roadmap */}
+                {/* Key Capabilities */}
                 <div className="pt-3 border-t border-border-subtle/50">
                   <span className="text-[9px] font-mono text-text-muted uppercase tracking-wider block mb-2">
-                    Roadmap
+                    Key Capabilities
                   </span>
                   <div className="flex flex-wrap gap-1.5">
-                    {p.roadmap.map((item) => (
+                    {p.capabilities.map((item) => (
                       <span key={item}
                         className="text-[10px] font-mono px-2 py-0.5 rounded-md
-                                  bg-bg-secondary/50 border border-border-subtle/50
-                                  text-text-muted">
+                                  bg-accent-cyan/5 border border-accent-cyan/10
+                                  text-accent-cyan/70">
                         {item}
                       </span>
                     ))}
@@ -116,12 +116,6 @@ export default function FlagshipProducts() {
             ))}
           </div>
 
-          <motion.div variants={fadeInUp}
-            className="mt-5 text-center">
-            <span className="text-[10px] font-mono text-text-muted/30">
-              Active Development · Updated Regularly
-            </span>
-          </motion.div>
         </motion.div>
       </div>
     </section>

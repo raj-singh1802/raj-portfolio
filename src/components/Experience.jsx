@@ -196,19 +196,19 @@ export default function Experience() {
                       {/* Products (if any) */}
                       {job.products.length > 0 && (
                         <div className={sectionBase}>
-                          <SectionHeading>Products Shipped</SectionHeading>
+                          <SectionHeading>Flagship Products</SectionHeading>
                           <div className="space-y-3">
                             {job.products.map((p) => (
                               <div key={p.name}
                                 className="flex items-start gap-3 p-3 rounded-xl
-                                          bg-bg-card/50 border border-border-subtle/50">
+                                          bg-bg-card/50 border border-border-subtle/50 min-h-[60px]">
                                 <span className="text-lg flex-shrink-0 mt-0.5">{p.icon}</span>
-                                <div>
-                                  <span className="text-sm font-medium text-text-primary block"
+                                <div className="min-w-0">
+                                  <span className="text-sm font-medium text-text-primary block truncate"
                                     style={{ color: p.color }}>
                                     {p.name}
                                   </span>
-                                  <span className="text-xs text-text-muted">{p.desc}</span>
+                                  <span className="text-xs text-text-muted block leading-relaxed">{p.desc}</span>
                                 </div>
                               </div>
                             ))}

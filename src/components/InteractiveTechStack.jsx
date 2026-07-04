@@ -44,13 +44,15 @@ function TechNode({ node, active, onToggle, color }) {
     <div>
       <motion.button
         onClick={() => onToggle(node.label)}
-        className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all border
+        className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-xl text-left transition-all border cursor-pointer
           ${active
             ? 'border-accent-cyan/30 bg-accent-cyan/5'
             : 'border-border-subtle bg-bg-secondary/30 hover:border-border-active hover:bg-bg-secondary/60'
           }`}
         whileHover={{ x: 4 }}
         whileTap={{ scale: 0.99 }}
+        aria-expanded={active}
+        aria-label={`Toggle ${node.label} details`}
       >
         <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: color }} />
         <div className="flex-1 min-w-0">
@@ -61,7 +63,7 @@ function TechNode({ node, active, onToggle, color }) {
         </div>
         <motion.svg
           animate={{ rotate: active ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           width="12" height="12" viewBox="0 0 12 12" fill="none"
           className="text-text-muted flex-shrink-0"
         >

@@ -248,7 +248,7 @@ export default function Hero() {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <span className="text-[11px] font-mono text-emerald-400/80 tracking-wider">
-                Building Production AI Products
+                Building Production AI Systems
               </span>
               <span className="w-px h-3 bg-emerald-500/20" />
               <span className="text-[11px] font-mono text-text-muted">
@@ -288,15 +288,15 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.15 }}
               className="mb-8"
             >
-              <h1 className="font-display font-black text-[2.5rem] sm:text-[3.25rem] md:text-[4rem]
-                             lg:text-[4rem] xl:text-[4.5rem] leading-[1.05] tracking-tight text-text-primary">
+              <h1 className="font-display font-black text-[2rem] sm:text-[2.75rem] md:text-[3.5rem]
+                             lg:text-[3.75rem] xl:text-[4rem] leading-[1.05] tracking-tight text-text-primary">
                 BUILDING
                 <br />
                 PRODUCTION
                 <br />
                 <span className="bg-gradient-to-r from-accent-cyan via-accent-teal to-accent-cyan
                                  bg-clip-text text-transparent">
-                  AI PRODUCTS.
+                  AI SYSTEMS.
                 </span>
               </h1>
             </motion.div>
@@ -368,7 +368,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-xl"
             >
               {HERO_STATS.map((stat, i) => (
                 <AnimatedStat key={i} {...stat} index={i} />

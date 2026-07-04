@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Brain, Cpu, Eye, Cloud, ArrowDown, Check } from 'lucide-react';
+import { Brain, Cpu, Eye, Cloud, ArrowRight, Check } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 
 const fadeInUp = {
@@ -99,10 +99,10 @@ export default function About() {
                 <h3 className="text-xs font-mono text-text-muted uppercase tracking-widest mb-4">
                   What I Build
                 </h3>
-                <div className="space-y-3">
+                <div className="grid grid-cols-1 gap-3">
                   {BUILD_CATEGORIES.map((item) => (
                     <div key={item.title}
-                      className="card-base card-hover p-4 flex items-start gap-4 group cursor-default">
+                      className="card-base card-hover p-4 flex items-start gap-4 group cursor-default min-h-[72px]">
                       <div className="w-10 h-10 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20
                                       flex items-center justify-center flex-shrink-0
                                       group-hover:bg-accent-cyan/20 transition-colors">
@@ -130,23 +130,21 @@ export default function About() {
                   Engineering Workflow
                 </h3>
                 <div className="card-base p-6">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-0 sm:gap-2">
-                    {WORKFLOW_STEPS.map((step, i) => (
-                      <div key={step} className="flex items-center gap-0 sm:gap-2 w-full sm:w-auto">
-                        <div className="flex items-center gap-2 px-3 py-2 rounded-lg
-                                        bg-accent-cyan/5 border border-accent-cyan/10
-                                        text-accent-cyan text-xs font-mono font-medium
-                                        flex-1 sm:flex-initial text-center sm:text-left">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan/60 flex-shrink-0" />
-                          {step}
-                        </div>
-                        {i < WORKFLOW_STEPS.length - 1 && (
-                          <ArrowDown size={12} className="text-accent-cyan/30 mx-auto sm:mx-0
-                                                          rotate-90 sm:rotate-0 flex-shrink-0" />
-                        )}
-                      </div>
-                    ))}
+                  <div className="flex flex-wrap items-center gap-2">
+                {WORKFLOW_STEPS.map((step, i) => (
+                  <div key={step} className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 px-3 py-2 rounded-lg
+                                    bg-accent-cyan/5 border border-accent-cyan/10
+                                    text-accent-cyan text-xs font-mono font-medium whitespace-nowrap">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan/60 flex-shrink-0" />
+                      {step}
+                    </div>
+                    {i < WORKFLOW_STEPS.length - 1 && (
+                      <ArrowRight size={12} className="text-accent-cyan/30 flex-shrink-0" />
+                    )}
                   </div>
+                ))}
+              </div>
                 </div>
               </motion.div>
 
@@ -158,7 +156,7 @@ export default function About() {
                 <div className="grid grid-cols-2 gap-3">
                   {HIGHLIGHTS.map((item) => (
                     <div key={item.label}
-                      className="card-base p-4 text-center hover:border-border-active/50 transition-all">
+                      className="card-base p-4 text-center hover:border-border-active/50 transition-all flex flex-col items-center justify-center min-h-[80px]">
                       <div className="font-display font-black text-xl text-accent-cyan mb-0.5">
                         {item.value}
                       </div>
@@ -173,7 +171,7 @@ export default function About() {
               {/* Shipped Projects */}
               <motion.div variants={fadeInUp}>
                 <h3 className="text-xs font-mono text-text-muted uppercase tracking-widest mb-4">
-                  Shipped Projects
+                  Shipped Products
                 </h3>
                 <div className="card-base p-5">
                   <div className="space-y-2">

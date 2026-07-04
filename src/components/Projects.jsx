@@ -24,19 +24,18 @@ function ScreenshotPlaceholder({ src, alt, caption, color }) {
           loading="lazy"
         />
       ) : (
-        <div className="aspect-video flex flex-col items-center justify-center gap-3"
-          style={{ background: `linear-gradient(135deg, ${color}08, ${color}03)` }}>
-          <Monitor size={32} className="text-accent-cyan/20" />
-          <div className="flex gap-1.5">
-            <div className="w-1.5 h-1.5 rounded-full bg-accent-cyan/20" />
-            <div className="w-1.5 h-1.5 rounded-full bg-accent-cyan/30" />
-            <div className="w-1.5 h-1.5 rounded-full bg-accent-cyan/20" />
+        <div className="aspect-video flex flex-col items-center justify-center gap-2 px-4"
+          style={{ background: `linear-gradient(135deg, ${color}06, ${color}02)` }}>
+          <div className="w-8 h-8 rounded-lg border border-dashed border-border-subtle/50 flex items-center justify-center">
+            <Monitor size={16} className="text-text-muted/30" />
           </div>
+          <p className="text-[11px] font-mono text-text-muted/40 text-center">Deployment in Progress</p>
+          <p className="text-[9px] font-mono text-text-muted/25 text-center max-w-[180px]">Screenshots will be added after production deployment.</p>
         </div>
       )}
       {caption && (
         <div className="px-3 py-2 border-t border-border-subtle">
-          <p className="text-[10px] text-text-muted font-mono">{caption}</p>
+          <p className="text-[10px] text-text-muted font-mono truncate">{caption}</p>
         </div>
       )}
     </div>
@@ -74,8 +73,13 @@ function FeaturedCard({ project, onOpen }) {
                 <div>
                   <h3 className="font-display font-bold text-2xl text-text-primary">{project.title}</h3>
                   <div className="flex items-center gap-2 mt-1">
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full
-                      text-[10px] font-mono border text-emerald-400 bg-emerald-400/10 border-emerald-400/20">
+                    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full
+                      text-[10px] font-mono border
+                      ${project.status === 'Production Ready' || project.status === 'Live'
+                        ? 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20'
+                        : project.status === 'Production MVP'
+                        ? 'text-accent-cyan bg-accent-cyan/10 border-accent-cyan/20'
+                        : 'text-purple-400 bg-purple-400/10 border-purple-400/20'}`}>
                       <span className="w-1.5 h-1.5 rounded-full bg-current" />
                       {project.status}
                     </span>
@@ -212,8 +216,10 @@ function CaseCard({ project, index, onClick }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
-  const statusColor = project.status === 'Live'
+  const statusColor = project.status === 'Live' || project.status === 'Production Ready'
     ? 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20'
+    : project.status === 'Production MVP'
+    ? 'text-accent-cyan bg-accent-cyan/10 border-accent-cyan/20'
     : 'text-purple-400 bg-purple-400/10 border-purple-400/20';
 
   return (
@@ -320,8 +326,10 @@ function CaseCard({ project, index, onClick }) {
 function CaseStudyModal({ project, onClose }) {
   if (!project) return null;
 
-  const statusColor = project.status === 'Live'
+  const statusColor = project.status === 'Live' || project.status === 'Production Ready'
     ? 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20'
+    : project.status === 'Production MVP'
+    ? 'text-accent-cyan bg-accent-cyan/10 border-accent-cyan/20'
     : 'text-purple-400 bg-purple-400/10 border-purple-400/20';
 
   return (
@@ -508,12 +516,18 @@ export default function Projects() {
   const headerRef = useRef(null);
   const headerInView = useInView(headerRef, { once: true });
 
+  const matchesCategory = (p, cat) => {
+    if (cat === 'All') return true;
+    const cats = p.categories || (p.category ? [p.category] : []);
+    return cats.includes(cat);
+  };
+
   const featured = projects.filter((p) => p.featured);
-  const secondary = projects.filter((p) => !p.featured && (activeFilter === 'All' || p.category === activeFilter));
+  const secondary = projects.filter((p) => !p.featured && matchesCategory(p, activeFilter));
   const filtered = activeFilter === 'All'
     ? projects
-    : projects.filter((p) => p.category === activeFilter);
-  const showFeatured = activeFilter === 'All' || featured.some(p => p.category === activeFilter);
+    : projects.filter((p) => matchesCategory(p, activeFilter));
+  const showFeatured = activeFilter === 'All' || featured.some(p => matchesCategory(p, activeFilter));
 
   return (
     <section id="projects" className="relative py-24 md:py-32">
@@ -545,7 +559,7 @@ export default function Projects() {
             </motion.h2>
 
             <motion.p variants={fadeInUp} className="mt-4 text-text-secondary max-w-xl">
-              Real systems with real architecture decisions. Click any project for a full case study.
+              Real systems with real architecture decisions. Click any product for a full case study.
             </motion.p>
           </motion.div>
 

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { MapPin, Rocket, Code2, Brain, Zap } from 'lucide-react';
+import { Brain, Cpu, BarChart3, Cloud, ArrowDown, Check } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 
 const fadeInUp = {
@@ -12,22 +12,27 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.12 } },
 };
 
-const highlights = [
-  {
-    icon: Rocket,
-    title: "Ship Fast",
-    desc: "End-to-end AI systems from concept to production in days. AI Tutor Screener deployed in just 5 days.",
-  },
-  {
-    icon: Brain,
-    title: "Agentic AI Engineering",
-    desc: "Building multi-step execution pipelines, LLM orchestration, and autonomous workflow systems at internship level.",
-  },
-  {
-    icon: Code2,
-    title: "Full-Stack AI",
-    desc: "FastAPI backends, Streamlit frontends, vector databases, and cloud deployment — the complete production stack.",
-  },
+const BUILD_CATEGORIES = [
+  { icon: Brain,    title: 'Agentic AI Systems',     desc: 'Multi-step LLM orchestration, LangGraph workflows, and autonomous execution pipelines.' },
+  { icon: Cpu,      title: 'Backend AI Platforms',    desc: 'FastAPI, Node.js, PostgreSQL — enterprise-grade APIs with structured AI decision memory.' },
+  { icon: BarChart3, title: 'ML Pipelines',           desc: 'End-to-end model training, feature engineering, and predictive inference systems.' },
+  { icon: Cloud,    title: 'Production Deployments',  desc: 'Docker, Redis, cloud hosting — live systems serving real users with measurable impact.' },
+];
+
+const WORKFLOW_STEPS = ['Problem', 'Architecture', 'Backend', 'AI Integration', 'Deployment'];
+
+const HIGHLIGHTS = [
+  { label: 'Production AI Systems', value: '7+' },
+  { label: 'Industry Internships',   value: '2' },
+  { label: 'Live Deployments',      value: '4+' },
+  { label: 'Open Source Projects',  value: '6' },
+];
+
+const SHIPPED_PROJECTS = [
+  { name: 'AI Tutor Screener',    tag: 'Voice AI',    color: '#00d4d4' },
+  { name: 'RevenueGuard AI',      tag: 'Agentic AI',  color: '#f59e0b' },
+  { name: 'EventLens AI',         tag: 'Full-Stack', color: '#8b5cf6' },
+  { name: 'AI Startup Evaluator', tag: 'LLM + FAISS', color: '#00a896' },
 ];
 
 export default function About() {
@@ -59,74 +64,144 @@ export default function About() {
                             bg-gradient-to-r from-accent-cyan/30 to-transparent" />
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Heading */}
+          <motion.h2 variants={fadeInUp} className="section-title mb-6">
+            I build production AI systems
+            <span className="block text-accent-cyan">that automate real workflows.</span>
+          </motion.h2>
 
-            {/* Left: Text */}
-            <div>
-              <motion.h2 variants={fadeInUp} className="section-title mb-6">
-                I build AI systems
-                <span className="block text-accent-cyan">that actually ship.</span>
-              </motion.h2>
+          {/* Identity paragraph */}
+          <motion.p variants={fadeInUp}
+            className="text-text-secondary text-lg leading-relaxed max-w-3xl mb-16">
+            I design and deploy intelligent systems — from LLM-powered interview automation
+            and enterprise payment recovery platforms to machine learning pipelines and
+            agentic AI workflows. Every project I build is deployed, functional, and
+            solving a real business problem.
+          </motion.p>
 
-              <motion.p variants={fadeInUp}
-                className="text-text-secondary text-lg leading-relaxed mb-4">
-                  Computer Science student obsessively focused on 
-                  building end-to-end AI products — not just models, but complete 
-                  systems with APIs, frontends, and cloud deployments that actually work.
-              </motion.p>
+          {/* Grid: What I Build + Workflow + Highlights + Projects */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
 
-              <motion.p variants={fadeInUp}
-                className="text-text-secondary leading-relaxed mb-6">
-                  Currently interning as an AI Engineer at Hamath OPC, building agentic 
-                  workflow systems and LLM-powered automation pipelines. Previously a 
-                  Business Analyst Intern at Labmentix where I cut reporting effort by 40% 
-                  using Python, SQL, and Power BI. Every project I build is deployed, 
-                  functional, and accessible via a live URL.
-              </motion.p>
+            {/* Left column */}
+            <div className="space-y-8">
 
-              {/* Info chips */}
-              <motion.div variants={fadeInUp} className="flex flex-wrap gap-3">
-                <div className="flex items-center gap-2 tag">
-                  <MapPin size={12} className="text-accent-cyan" />
-                  <span>{personalInfo.location}</span>
-                </div>
-                <div className="flex items-center gap-2 tag">
-                  <Rocket size={12} className="text-accent-cyan" />
-                  <span>5 AI Products Shipped</span>
-                </div>
-                <div className="flex items-center gap-2 tag">
-                  <Zap size={12} className="text-accent-cyan" />
-                  <span>Open to Work — May 2026</span>
+              {/* What I Build */}
+              <motion.div variants={fadeInUp}>
+                <h3 className="text-xs font-mono text-text-muted uppercase tracking-widest mb-4">
+                  What I Build
+                </h3>
+                <div className="space-y-3">
+                  {BUILD_CATEGORIES.map((item) => (
+                    <div key={item.title}
+                      className="card-base card-hover p-4 flex items-start gap-4 group cursor-default">
+                      <div className="w-10 h-10 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20
+                                      flex items-center justify-center flex-shrink-0
+                                      group-hover:bg-accent-cyan/20 transition-colors">
+                        <item.icon size={18} className="text-accent-cyan" />
+                      </div>
+                      <div>
+                        <h4 className="font-display font-semibold text-text-primary text-sm mb-0.5">
+                          {item.title}
+                        </h4>
+                        <p className="text-sm text-text-secondary leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
+
             </div>
 
-            {/* Right: Highlight cards */}
-            <motion.div variants={stagger} className="grid gap-4">
-              {highlights.map((item, i) => (
-                <motion.div
-                  key={i}
-                  variants={fadeInUp}
-                  className="card-base card-hover p-5 flex gap-4 group cursor-default"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20
-                                  flex items-center justify-center flex-shrink-0
-                                  group-hover:bg-accent-cyan/20 transition-colors">
-                    <item.icon size={18} className="text-accent-cyan" />
-                  </div>
-                  <div>
-                    <h3 className="font-display font-semibold text-text-primary mb-1">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-text-secondary leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+            {/* Right column */}
+            <div className="space-y-8">
 
+              {/* Engineering Workflow */}
+              <motion.div variants={fadeInUp}>
+                <h3 className="text-xs font-mono text-text-muted uppercase tracking-widest mb-4">
+                  Engineering Workflow
+                </h3>
+                <div className="card-base p-6">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-0 sm:gap-2">
+                    {WORKFLOW_STEPS.map((step, i) => (
+                      <div key={step} className="flex items-center gap-0 sm:gap-2 w-full sm:w-auto">
+                        <div className="flex items-center gap-2 px-3 py-2 rounded-lg
+                                        bg-accent-cyan/5 border border-accent-cyan/10
+                                        text-accent-cyan text-xs font-mono font-medium
+                                        flex-1 sm:flex-initial text-center sm:text-left">
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan/60 flex-shrink-0" />
+                          {step}
+                        </div>
+                        {i < WORKFLOW_STEPS.length - 1 && (
+                          <ArrowDown size={12} className="text-accent-cyan/30 mx-auto sm:mx-0
+                                                          rotate-90 sm:rotate-0 flex-shrink-0" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Highlights */}
+              <motion.div variants={fadeInUp}>
+                <h3 className="text-xs font-mono text-text-muted uppercase tracking-widest mb-4">
+                  Highlights
+                </h3>
+                <div className="grid grid-cols-2 gap-3">
+                  {HIGHLIGHTS.map((item) => (
+                    <div key={item.label}
+                      className="card-base p-4 text-center hover:border-border-active/50 transition-all">
+                      <div className="font-display font-black text-xl text-accent-cyan mb-0.5">
+                        {item.value}
+                      </div>
+                      <div className="text-[10px] text-text-muted font-mono uppercase tracking-wider">
+                        {item.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Shipped Projects */}
+              <motion.div variants={fadeInUp}>
+                <h3 className="text-xs font-mono text-text-muted uppercase tracking-widest mb-4">
+                  Shipped Projects
+                </h3>
+                <div className="card-base p-5">
+                  <div className="space-y-2">
+                    {SHIPPED_PROJECTS.map((p) => (
+                      <div key={p.name} className="flex items-center gap-3 p-2 rounded-xl
+                        bg-bg-secondary/50 border border-border-subtle hover:border-border-active transition-all">
+                        <Check size={14} className="text-emerald-400 flex-shrink-0" />
+                        <span className="text-sm text-text-secondary flex-1">{p.name}</span>
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border"
+                          style={{ color: p.color, borderColor: `${p.color}40`, background: `${p.color}10` }}>
+                          {p.tag}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+            </div>
           </div>
+
+          {/* Bottom CTA */}
+          <motion.div variants={fadeInUp}
+            className="text-center p-8 rounded-2xl bg-accent-cyan/5 border border-accent-cyan/10
+                       max-w-2xl mx-auto">
+            <p className="text-text-secondary text-sm leading-relaxed">
+              Currently building{' '}
+              <span className="text-accent-cyan font-medium">agentic AI systems</span> at Hamath OPC
+              and shipping production platforms like{' '}
+              <span className="text-accent-cyan font-medium">RevenueGuard AI</span> and{' '}
+              <span className="text-accent-cyan font-medium">EventLens AI</span>.
+              {personalInfo.graduation && (
+                <> Available for full-time AI Engineer roles from {personalInfo.graduation}.</>
+              )}
+            </p>
+          </motion.div>
+
         </motion.div>
       </div>
     </section>

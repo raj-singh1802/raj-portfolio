@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, ArrowDown, Check, ExternalLink } from 'lucide-react';
-import { Github, Linkedin } from './BrandIcons';
+import { Github, Linkedin, PythonLogo, DockerLogo, PostgresLogo, GitLogo, FastAPILogo, RedisLogo } from './BrandIcons';
 import { personalInfo } from '../data/portfolio';
 
 const ROLES = [
@@ -30,14 +30,19 @@ const STACK_ITEMS = [
 ];
 
 const HERO_STATS = [
-  { value: 7,  suffix: '+', label: 'Production Projects'  },
-  { value: 500, suffix: '+', label: 'Invoices Processed'   },
-  { value: 2,  suffix: '',  label: 'Industry Internships'   },
-  { value: 5,  suffix: '',  label: 'Fastest Product Build', meta: '5 Days' },
+  { value: 7,  suffix: '+', label: 'Production Projects'   },
+  { value: 500, suffix: '+', label: 'Records Analyzed'      },
+  { value: 2,  suffix: '',  label: 'Industry Internships'    },
+  { value: 5,  suffix: '',  label: 'Fastest Product Build',  meta: '5 Days' },
 ];
 
-const TECH_TAGS = [
-  'Python', 'FastAPI', 'Docker', 'PostgreSQL', 'Redis', 'Groq',
+const TECH_LOGOS = [
+  { icon: PythonLogo,  label: 'Python'     },
+  { icon: FastAPILogo, label: 'FastAPI'    },
+  { icon: DockerLogo,  label: 'Docker'     },
+  { icon: PostgresLogo,label: 'PostgreSQL' },
+  { icon: RedisLogo,   label: 'Redis'      },
+  { icon: GitLogo,     label: 'Git'        },
 ];
 
 function Particle({ x, y, size, duration, delay }) {
@@ -106,14 +111,16 @@ function StackCard() {
             </div>
           ))}
         </div>
-        {/* Tech tags below stack */}
+        {/* Tech logos below stack */}
         <div className="mt-5 pt-4 border-t border-border-subtle/50">
-          <div className="flex flex-wrap gap-1.5 justify-center">
-            {TECH_TAGS.map((t) => (
-              <span key={t} className="text-[10px] font-mono px-2 py-1 rounded-md
-                bg-accent-cyan/5 border border-accent-cyan/10 text-accent-cyan/70">
-                {t}
-              </span>
+          <div className="flex flex-wrap gap-2 justify-center">
+            {TECH_LOGOS.map(({ icon: Icon, label }) => (
+              <div key={label} className="flex items-center gap-1 px-2 py-1 rounded-md
+                bg-accent-cyan/5 border border-accent-cyan/10"
+                title={label}>
+                <Icon size={14} className="text-accent-cyan/70" />
+                <span className="text-[9px] font-mono text-accent-cyan/60">{label}</span>
+              </div>
             ))}
           </div>
         </div>
@@ -387,16 +394,17 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
       >
-        <span className="text-[10px] font-mono text-text-muted/50 tracking-widest uppercase">
-          scroll
+        <span className="text-[10px] font-mono text-text-muted/40 tracking-widest uppercase">
+          Explore My Work
         </span>
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-px h-8 bg-gradient-to-b from-accent-cyan/30 to-transparent"
-        />
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <ArrowDown size={14} className="text-accent-cyan/40" />
+        </motion.div>
       </motion.div>
 
     </section>

@@ -272,8 +272,6 @@ export default function Experience() {
             className="mt-6 p-6 rounded-2xl bg-gradient-to-r from-accent-cyan/[0.03] to-transparent
                        border border-accent-cyan/10 text-center">
             <p className="text-sm text-text-secondary leading-relaxed max-w-2xl mx-auto">
-              <span className="text-accent-cyan font-medium">Data & Analytics</span>
-              {' '}→{' '}
               <span className="text-accent-cyan font-medium">Business Analysis</span>
               {' '}→{' '}
               <span className="text-accent-cyan font-medium">AI Engineering</span>

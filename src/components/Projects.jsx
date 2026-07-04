@@ -508,12 +508,12 @@ export default function Projects() {
   const headerRef = useRef(null);
   const headerInView = useInView(headerRef, { once: true });
 
-  const featured = projects.find((p) => p.featured);
+  const featured = projects.filter((p) => p.featured);
   const secondary = projects.filter((p) => !p.featured && (activeFilter === 'All' || p.category === activeFilter));
   const filtered = activeFilter === 'All'
     ? projects
     : projects.filter((p) => p.category === activeFilter);
-  const showFeatured = activeFilter === 'All' || (featured && featured.category === activeFilter);
+  const showFeatured = activeFilter === 'All' || featured.some(p => p.category === activeFilter);
 
   return (
     <section id="projects" className="relative py-24 md:py-32">
@@ -570,13 +570,15 @@ export default function Projects() {
             ))}
           </motion.div>
 
-          {/* Featured Project */}
-          {showFeatured && featured && (
-            <div className="mb-8">
-              <span className="text-[10px] font-mono text-accent-cyan/50 uppercase tracking-widest mb-4 block">
-                ⭐ Featured Project
+          {/* Featured Projects */}
+          {showFeatured && featured.length > 0 && (
+            <div className="mb-8 space-y-6">
+              <span className="text-[10px] font-mono text-accent-cyan/50 uppercase tracking-widest block">
+                ⭐ Featured Products
               </span>
-              <FeaturedCard project={featured} onOpen={() => setSelectedProject(featured)} />
+              {featured.map((p) => (
+                <FeaturedCard key={p.id} project={p} onOpen={() => setSelectedProject(p)} />
+              ))}
             </div>
           )}
 

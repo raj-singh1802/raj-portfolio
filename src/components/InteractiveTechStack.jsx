@@ -92,7 +92,7 @@ export default function InteractiveTechStack() {
   const [activeNode, setActiveNode] = useState(null);
 
   return (
-    <section className="relative py-24 md:py-32">
+    <section id="tech-stack" className="relative py-24 md:py-32">
 
       <div className="absolute top-0 left-0 right-0 h-px
                       bg-gradient-to-r from-transparent via-border-active to-transparent" />

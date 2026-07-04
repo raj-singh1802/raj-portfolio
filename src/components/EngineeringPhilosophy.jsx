@@ -22,7 +22,7 @@ export default function EngineeringPhilosophy() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section className="relative py-24 md:py-32">
+    <section id="principles" className="relative py-24 md:py-32">
 
       <div className="absolute top-0 left-0 right-0 h-px
                       bg-gradient-to-r from-transparent via-border-active to-transparent" />

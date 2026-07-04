@@ -248,7 +248,7 @@ export default function Hero() {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <span className="text-[11px] font-mono text-emerald-400/80 tracking-wider">
-                Building Production AI Systems
+                Building Production AI Products
               </span>
               <span className="w-px h-3 bg-emerald-500/20" />
               <span className="text-[11px] font-mono text-text-muted">
@@ -296,7 +296,7 @@ export default function Hero() {
                 <br />
                 <span className="bg-gradient-to-r from-accent-cyan via-accent-teal to-accent-cyan
                                  bg-clip-text text-transparent">
-                  AI SYSTEMS.
+                  AI PRODUCTS.
                 </span>
               </h1>
             </motion.div>

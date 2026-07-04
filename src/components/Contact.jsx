@@ -96,8 +96,8 @@ export default function Contact() {
 
           <motion.p variants={fadeInUp}
             className="text-text-secondary max-w-xl mb-12 text-lg">
-            I'm actively looking for Data Analyst, ML Engineer, and AI Engineer roles.
-            Open to full-time positions, internships, and interesting collaborations.
+            I'm actively looking for AI Engineer, Machine Learning Engineer, and
+            Backend AI Engineer roles. Open to full-time positions and interesting collaborations.
           </motion.p>
 
           <div className="grid lg:grid-cols-2 gap-10">

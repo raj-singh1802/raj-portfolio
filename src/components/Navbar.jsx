@@ -23,17 +23,18 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sections = document.querySelectorAll('section[id]');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        });
-      },
-      { threshold: 0.4 }
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+    const onScroll = () => {
+      const sections = document.querySelectorAll('section[id]');
+      let current = '';
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 200) current = section.id;
+      });
+      setActiveSection(current);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const scrollTo = (href) => {

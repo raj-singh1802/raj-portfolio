@@ -34,7 +34,7 @@ export default function FlagshipProducts() {
   const inView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section className="relative py-16 md:py-20">
+    <section id="flagship" className="relative py-16 md:py-20">
       <div className="section-padding">
         <motion.div
           ref={ref}

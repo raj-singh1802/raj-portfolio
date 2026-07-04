@@ -66,7 +66,7 @@ export default function About() {
 
           {/* Heading */}
           <motion.h2 variants={fadeInUp} className="section-title mb-6">
-            I build production AI systems
+            I engineer production AI products
             <span className="block text-accent-cyan">that automate real workflows.</span>
           </motion.h2>
 
@@ -82,9 +82,9 @@ export default function About() {
           {/* Identity paragraph */}
           <motion.p variants={fadeInUp}
             className="text-text-secondary leading-relaxed max-w-3xl mb-16">
-            I design and deploy intelligent systems — from LLM-powered interview automation
+            I design and deploy intelligent products — from LLM-powered interview automation
             and enterprise payment recovery platforms to machine learning systems and
-            agentic AI workflows. Every project I build is deployed, functional, and
+            agentic AI workflows. Every product I engineer is deployed, functional, and
             solving a real business problem.
           </motion.p>
 
